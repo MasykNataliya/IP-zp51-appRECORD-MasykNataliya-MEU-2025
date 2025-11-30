@@ -134,7 +134,7 @@ body {
 
 /* About */
 .about {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   border-top: 2px solid #c8e6c9;
@@ -145,6 +145,20 @@ body {
 
 .about h2 {
   text-align: left;
+  color: #33691e;
+}
+
+.aboutscreenshot{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  border-top: 2px solid #c8e6c9;
+  background: #fdfefc; 
+  border-radius: 8px;
+  }
+
+.aboutscreenshot h2 {
+  text-align: center;
   color: #33691e;
 }
 
