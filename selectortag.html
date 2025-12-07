@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Звіти з лабораторних робіт</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="layout">
+    <!-- Бокове меню -->
+    <aside class="sidenav">
+      <a href="temal2.html">Тема. Мета ЛР№2. Місце розташування сайту, звіту</a>
+      <a href="sposib.html">Способи підключення стилів</a>
+      <p>Селектори</p>
+      <a href="selectortag.html" class="small-link">Селектор тегу</a>
+      <a href="selectorclass.html" class="small-link">Селектор класу</a>
+      <a href="selectoridentificator.html" class="small-link">Селектори ідентифікаторів</a>
+      <a href="otherselectors.html" class="small-link">Інші селектори</a>
+      <a href="cssstructure.html">CSS: Шрифти. Текст. Таблиці. Фон. Контур. Списки. CSS Просунутий</a>
+      <a href="conclusion.html">Висновки до ЛР№2</a>
+    </aside>
+
+    <!-- Основний контент -->
+    <main class="content">
+      <header class="events">
+        <div class="events__title">
+          <p>ЗВІТИ З ЛАБОРАТОРНИХ РОБІТ З</p>
+          <p>ДИСЦИПЛІНИ “Проєктування WEB-застосувань”</p>
+        </div>
+      </header>
+
+      <div class="events__author">
+  <p>Виконавець: Студентка групи ІП-зп51 Масик Н.В.</p>
+  <img src="2.jpg" alt="Фото" class="events__photo" />
+</div>
+
+
+   <nav class="onview">
+        <a href="lab1.html">Лабораторна 1</a>
+        <a href="lab2.html">Лабораторна 2</a>
+        <a href="lab1.html">Лабораторна 3</a>
+        <a href="lab1.html">Лабораторна 4</a>
+        <a href="lab1.html">Лабораторна 5</a>
+        <a href="lab1.html">Лабораторна 6</a>
+        <a href="lab1.html">Лабораторна 7</a>
+        <a href="lab1.html">Лабораторна 8</a>
+        <a href="lab1.html">Лабораторна 9</a>
+      </nav>
+
+      <section class="title">
+  <h2>Основна інформація</h2>
+  <div class="about">
+    <h3>Приклади селекторів тегів:</h3>
+    <pre><code>
+
+  body {
+  font-family: "Rethink Sans", "Noto Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fdfefc;
+  color: #2a2a2a;
+}
+
+
+   </code></pre>
+
+   <p>Даний селектор відноситься до тіла сторінки. </p> 
+  <p><strong>font-family: "Rethink Sans", "Noto Sans", sans-serif;</strong> - значить, що до всіх текстових елементів тіла буде застосовано шрифт за наступним алгоритмом:</p>
+ <ul>
+  <li> Спочатку використовується "Rethink Sans", якщо він доступний.</li>
+<li> Якщо ні — "Noto Sans".</li>
+<li>Якщо жоден із них не знайдений, браузер підставить будь‑який стандартний sans-serif.</li>
+</ul>
+<p><strong>margin: 0;</strong> - прибирає всі зовнішні відступи у тега <strong>body</strong></p>
+
+<p><strong>padding: 0;</strong> - прибирає всі внутрішні відступи у тега <strong>body</strong></p>
+
+<p><strong>background: #fdfefc;</strong> - задає колір фону сторінки світло-зеленим.</p>
+
+<p><strong>color: #2a2a2a;</strong> - встановлює базовий колір тексту на сторінці темно‑сірим.</p>
+
+ <pre><code>
+
+ header {
+  background: #e8f5e9;
+  padding: 28px;
+  text-align: center;
+  border-bottom: 2px solid #c8e6c9;
+}
+
+
+
+</code></pre>
+
+<p>Даний селектор задає шапку сайту. </p> 
+<p><strong>background: #e8f5e9;</strong> - задає світло‑зелений відтінок фону для блоку header.</p>
+ 
+<p><strong>padding: 28px;;</strong> - додає внутрішні відступи по 28 пікселів від всіх сторін всередині блоку header(зверху, знизу, зліва, справа).</p>
+
+<p><strong>text-align: center;</strong> - вирівнює текст та внутрішні елементи по центру горизонталі у блоці header</p>
+
+<p><strong>border-bottom: 2px solid #c8e6c9;</strong> - додає нижню рамку товщиною 2 пікселі світло-зеленого кольору</p>
+   
+<pre><code>
+
+  footer {
+  text-align: center;
+  padding: 24px;
+  background: #e8f5e9;
+  border-top: 1px solid #c8e6c9;
+  font-size: 15px;
+  color: #2a2a2a;
+}
+</code></pre>
+
+
+<p>Даний селектор задає нижню частину сторінки. </p> 
+<p><strong>text-align: center;</strong> - вирівнює текст та внутрішні елементи по центру горизонталі у блоці footer</p>
+ 
+<p><strong>padding: 24px;</strong> - додає внутрішні відступи по 24 пікселів від всіх сторін всередині блоку footer(зверху, знизу, зліва, справа).</p>
+
+<p><strong>background: #e8f5e9;</strong> - Задає світло‑зелений пастельний фон у блоці footer</p>
+
+<p><strong>border-top: 1px solid #c8e6c9;</strong> - додає верхню рамку товщиною 1 піксель світло-зеленого кольору </p>
+
+<p><strong>font-size: 15px;</strong> - встановлює розмір шрифту для тексту у блоці footer </p>
+ 
+<p><strong>color: #2a2a2a;</strong> - задає темно‑сірий колір тексту </p>
+
+</section>
+
+   
+    </main>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2025 Масик Н.В. | ІП-зп51</p>
+
+  </footer>
+
+  <script src="script.js"></script>
+    <p> тел. 067 921 86 26</p>
+</body>
+</html>

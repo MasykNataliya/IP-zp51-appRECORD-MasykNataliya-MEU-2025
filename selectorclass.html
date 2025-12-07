@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Звіти з лабораторних робіт</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="layout">
+    <!-- Бокове меню -->
+    <aside class="sidenav">
+      <a href="temal2.html">Тема. Мета ЛР№2. Місце розташування сайту, звіту</a>
+      <a href="sposib.html">Способи підключення стилів</a>
+      <p>Селектори</p>
+      <a href="selectortag.html" class="small-link">Селектор тегу</a>
+      <a href="selectorclass.html" class="small-link">Селектор класу</a>
+      <a href="selectoridentificator.html" class="small-link">Селектори ідентифікаторів</a>
+      <a href="otherselectors.html" class="small-link">Інші селектори</a>
+      <a href="cssstructure.html">CSS: Шрифти. Текст. Таблиці. Фон. Контур. Списки. CSS Просунутий</a>
+      <a href="conclusion.html">Висновки до ЛР№2</a>
+    </aside>
+
+    <!-- Основний контент -->
+    <main class="content">
+      <header class="events">
+        <div class="events__title">
+          <p>ЗВІТИ З ЛАБОРАТОРНИХ РОБІТ З</p>
+          <p>ДИСЦИПЛІНИ “Проєктування WEB-застосувань”</p>
+        </div>
+      </header>
+
+      <div class="events__author">
+  <p>Виконавець: Студентка групи ІП-зп51 Масик Н.В.</p>
+  <img src="2.jpg" alt="Фото" class="events__photo" />
+</div>
+
+
+   <nav class="onview">
+        <a href="lab1.html">Лабораторна 1</a>
+        <a href="lab2.html">Лабораторна 2</a>
+        <a href="lab1.html">Лабораторна 3</a>
+        <a href="lab1.html">Лабораторна 4</a>
+        <a href="lab1.html">Лабораторна 5</a>
+        <a href="lab1.html">Лабораторна 6</a>
+        <a href="lab1.html">Лабораторна 7</a>
+        <a href="lab1.html">Лабораторна 8</a>
+        <a href="lab1.html">Лабораторна 9</a>
+      </nav>
+
+      <section class="title">
+  <h2>Основна інформація</h2>
+  <div class="about">
+    <h3>Приклади селекторів класу:</h3>
+    <pre><code>
+
+ .images {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin: 40px 20px;
+}
+
+.images img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  border: 2px solid #c8e6c9;
+}
+
+   </code></pre>
+
+<p style="color: rgb(0, 128, 0);"><strong><u>Селектор класу .images</u></strong> </p> 
+<p><strong>display: flex;</strong> - робить контейнер гнучким, щоб вирівнювати та розташовувати зображення в ряд</p>
+<p><strong>justify-content: center;</strong> - вирівнює всі елементи всередині контейнера по центру горизонталі</p>
+<p><strong>gap: 32px;</strong> - встановлює відстань між зображеннями 32 пікселі</p>
+<p><strong>margin: 40px 20px;</strong> - додає зовнішні відступи навколо контейнера: 40 пікселів зверху та знизу та 20 пікселів зліва та справа,  
+</p>
+
+<p style="color: rgb(0, 128, 0);"><strong><u>Селектор .images img</u></strong></p> 
+<p><strong>width: 300px;</strong> - задає ширину кожного зображення — 300 пікселів</p>
+<p><strong>height: 200px;</strong> - задає висоту кожного зображення — 200 пікселів</p>
+<p><strong>object-fit: cover;</strong> - масштабує зображення так, щоб воно заповнювало задані розміри</p>
+<p><strong>border-radius: 16px;</strong> - закруглює кути зображення на 16 пікселів.</p>
+<p><strong>box-shadow: 0 6px 12px rgba(0,0,0,0.1);</strong> - додає тінь під зображенням. Тінь має зміщення вниз на 6px з розмиттям 12px і напівпрозорий чорний колір</p>
+<p><strong>border: 2px solid #c8e6c9;</strong> - додає рамку світло-зеленого кольору товщиною 2 пікселі навколо зображення. </p>
+
+ <pre><code>
+
+.delete-btn {
+  padding: 6px 12px;
+  background: #ef9a9a;
+  color: #2a2a2a;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.delete-btn:hover {
+  background: #e57373;
+}
+
+
+
+</code></pre>
+
+<p style="color: rgb(0, 128, 0);"><strong><u>Селектор .delete-btn</u></strong> задає стиль кнопки для видалення даних.</p> 
+<p><strong>padding: 6px 12px;</strong> - внутрішні відступи: 6px зверху/знизу та 12px зліва/справа</p>
+<p><strong>background: #ef9a9a;</strong> - задає світло‑червоний фон кнопки</p>
+<p><strong>color: #2a2a2a;</strong> - задає темно-сірий колір тексту</p>
+<p><strong>border: none;</strong> - прибирає рамку кнопки</p>
+<p><strong>border-radius: 6px;</strong> - закруглює кути кнопки на 6 пікселів</p>
+<p><strong>cursor: pointer;</strong> - при наведенні курсор змінюється на «руку», так як це клікабельний елемент</p>
+<p><strong>transition: background 0.3s;</strong> - додає плавний перехід кольору фону при зміні стану (наприклад, при наведенні)</p>
+
+
+<p style="color: rgb(0, 128, 0);"><strong><u>Селектор .delete-btn:hover</u></strong> стиль елемента при наведенні курсора</p>
+<p><strong>background: #e57373;</strong> - при наведенні фон стає більш насиченим червоним</p> 
+
+</section>
+
+   
+    </main>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2025 Масик Н.В. | ІП-зп51</p>
+
+  </footer>
+
+  <script src="script.js"></script>
+    <p> тел. 067 921 86 26</p>
+</body>
+</html>
