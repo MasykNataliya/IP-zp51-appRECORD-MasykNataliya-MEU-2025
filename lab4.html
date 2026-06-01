@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Звіт по Лабораторній роботі №4</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <!-- Бокове меню -->
+      <aside class="sidenav">
+        <a href="#task1">ЗАВДАННЯ №1</a>
+        <a href="#task2">ЗАВДАННЯ №2</a>
+        <a href="#task3">ЗАВДАННЯ №3</a>
+        <a href="#task4">ЗАВДАННЯ №4</a>
+        <a href="#task5">ЗАВДАННЯ №5</a>
+        <a href="#task6">ЗАВДАННЯ №6</a>
+        <a href="#task7">ЗАВДАННЯ №7</a>
+        <a href="#task8">ЗАВДАННЯ №8</a>
+        <a href="#task9">ЗАВДАННЯ №9</a>
+        <a href="#conclusion">Висновки</a>
+      </aside>
+
+      <!-- Основний контент -->
+      <main class="content">
+        <header class="events">
+          <div class="events__title">
+            <p>ЗВІТИ З ЛАБОРАТОРНИХ РОБІТ З</p>
+            <p>ДИСЦИПЛІНИ “Проєктування WEB-застосувань”</p>
+          </div>
+        </header>
+
+        <div class="events__author">
+          <p>Виконавець: Студентка групи ІП-зп51 Масик Н.В.</p>
+          <img src="2.jpg" alt="Фото" class="events__photo" />
+        </div>
+
+        <!-- Верхнє меню вибору лабораторних -->
+        <nav class="onview">
+          <a href="lab1.html">Лабораторна 1</a>
+          <a href="lab2.html">Лабораторна 2</a>
+          <a href="lab3.html">Лабораторна 3</a>
+          <a href="lab4.html">Лабораторна 4</a>
+          <a href="lab5.html">Лабораторна 5</a>
+          <a href="lab6.html">Лабораторна 6</a>
+          <a href="lab7.html">Лабораторна 7</a>
+          <a href="lab8.html">Лабораторна 8</a>
+          <a href="lab9.html">Лабораторна 9</a>
+        </nav>
+
+        <section class="title">
+          <h2>Лабораторна робота №4</h2>
+        </section>
+
+        <!-- Завдання 1–9 -->
+        <section class="task-section" id="task1">
+          <h2>ЗАВДАННЯ №1</h2>
+          <p>
+            <strong>Формулювання:</strong> Збережіть введене значення
+            (використати метод <code>prompt()</code>) у змінну
+            <code>value</code>. Вивести це значення у Console, використовуючи
+            шаблонний рядок. Перевірити: введене значення від’ємне? Додатнє?
+            Дорівнює нулю? Відповідь вивести за допомогою <code>alert()</code>.
+            Наприклад: при введенні <code>80</code> виведе «Число додатнє».
+            <em
+              >Підказка: при введенні значень не забудьте зробити ряд
+              перевірок.</em
+            >
+          </p>
+         <pre>
+&lt;script&gt;
+const value = prompt("Введіть число:");
+
+console.log(`Ви ввели число: ${value}`);
+
+const number = Number(value);
+
+if (number > 0) {
+  alert("Число додатнє");
+  console.log("Число додатнє");
+} else if (number < 0) {
+  alert("Число від’ємне");
+  console.log("Число від’ємне");
+} else if (number === 0) {
+  alert("Число дорівнює нулю");
+  console.log("Число дорівнює нулю");
+} else {
+  alert("Ви ввели некоректне значення");
+  console.log("Ви ввели некоректне значення");
+}
+&lt;/script&gt;
+  </pre>
+          >
+          <p><strong>Результати:</strong></p>
+          <img src="lab4_1_1.png" alt="Скріншот Console для завдання 1" />
+          <img src="lab4_1_2.png" alt="Скріншот Console для завдання 1" />
+          <img src="lab4_1_3.png" alt="Скріншот Console для завдання 1" />
+
+<ul>
+    <li>Посилання на репозиторій:  
+      <a href="https://github.com/MasykNataliya/lab4_1_Masyk_N_ip_zp_51" target="_blank">GitHub Repository</a>
+    </li>
+    <li>Посилання на сайт:  
+      <a href="https://masyknataliya.github.io/lab4_1_Masyk_N_ip_zp_51/" target="_blank">Live Demo</a>
+    </li>
+  </ul>
+
+        </section>
+
+        <section class="task-section" id="task2">
+          <h2>ЗАВДАННЯ №2</h2>
+          <p>
+            <strong>Формулювання:</strong> Змінна <code>number</code> може
+            набувати 4 значення: '1', '2', '3' або '4' (запитати це значення у
+            користувача через <code>prompt()</code>). Якщо вона має значення
+            '1', то у змінну <code>result</code> запишіть 'зима', якщо має
+            значення '2' – 'весна', якщо має значення '3' – 'літо', якщо має
+            значення '4' – 'осінь'. Розв’яжіть завдання через
+            <code>switch-case</code>. Не забудьте про
+            <em>дефолтне значення</em>, на випадок, якщо користувач введе щось
+            інше. Значення змінної <code>result</code> виведіть у Console.
+          </p>
+         <pre>
+&lt;script&gt;
+const number = prompt("Введіть число від 1 до 4:");
+
+let result;
+
+switch (number) {
+  case "1":
+    result = "зима";
+    break;
+  case "2":
+    result = "весна";
+    break;
+  case "3":
+    result = "літо";
+    break;
+  case "4":
+    result = "осінь";
+    break;
+  default:
+    result = "Некоректне значення";
+}
+
+alert(result);
+console.log(`Результат: ${result}`);
+&lt;/script&gt;
+  </pre>
+          >
+          <p><strong>Результати:</strong></p>
+          <img src="lab4_2_1.png" alt="Скріншот Console для завдання 2" />
+          <img src="lab4_2_2.png" alt="Скріншот Console для завдання 2" />
+          <img src="lab4_2_3.png" alt="Скріншот Console для завдання 2" />
+
+<ul>
+    <li>Посилання на репозиторій:  
+      <a href="https://github.com/MasykNataliya/lab4_2_Masyk_N_ip_zp_51.git" target="_blank">GitHub Repository</a>
+    </li>
+    <li>Посилання на сайт:  
+      <a href="https://masyknataliya.github.io/lab4_2_Masyk_N_ip_zp_51/" target="_blank">Live Demo</a>
+    </li>
+  </ul>
+
+        </section>
+
+        <section class="task-section" id="task3">
+          <h2>ЗАВДАННЯ №3</h2>
+          <p><strong>Формулювання:</strong> 
+    Є <code>Admin</code> та <code>User</code> з відповідними паролями (об’явити та проініціалізувати).  
+    Написати програмний код, який запитуватиме у користувача логін (використати <code>prompt()</code>) і виводить результат у Console браузера, використовуючи шаблонний рядок.  
+    Після цього додати перевірку введеного користувачем значення:
+    <ul>
+      <li>якщо відвідувач вводить <code>Admin</code>, то <code>prompt()</code> запитує пароль. У випадку вдалої ідентифікації в <code>alert()</code> вивести «Hello, Admin»;</li>
+      <li>якщо нічого не ввели або натиснули Cancel, то вивести в <code>alert()</code> рядок «Cancelled»;</li>
+      <li>в іншому випадку вивести в <code>alert()</code> рядок «I don't know you»;</li>
+      <li>те ж саме виконати для <code>User</code>.</li>
+    </ul>
+  </p>
+           <pre>
+&lt;script&gt;
+const adminLogin = "Admin";
+const adminPassword = "Admin123!";
+
+const userLogin = "User";
+const userPassword = "User123!";
+
+const login = prompt("Введіть ваш логін:");
+
+console.log(`Ви ввели логін: ${login}`);
+
+if (login === adminLogin) {
+  const password = prompt("Введіть пароль для Admin:");
+  if (password === adminPassword) {
+    alert("привіт, Admin");
+  } else if (password === null || password === "") {
+    alert("Cancelled");
+  } else {
+    alert("Невірний пароль для Admin");
+  }
+} else if (login === userLogin) {
+  const password = prompt("Введіть пароль для User:");
+  if (password === userPassword) {
+    alert("привіт, User");
+  } else if (password === null || password === "") {
+    alert("Cancelled");
+  } else {
+    alert("Невірний пароль для User");
+  }
+} else if (login === null || login === "") {
+  alert("Cancelled");
+} else {
+  alert("Невідомий користувач");
+}
+&lt;/script&gt;
+  </pre>
+          >
+          <p><strong>Результати:</strong></p>
+          <img src="lab4_3_1.png" alt="Скріншот Console для завдання 3" />
+          <img src="lab4_3_2.png" alt="Скріншот Console для завдання 3" />
+          <img src="lab4_3_3.png" alt="Скріншот Console для завдання 3" />
+          <img src="lab4_3_4.png" alt="Скріншот Console для завдання 3" />
+
+<ul>
+    <li>Посилання на репозиторій:  
+      <a href="https://github.com/MasykNataliya/lab4_3_Masyk_N_ip_zp_51.git" target="_blank">GitHub Repository</a>
+    </li>
+    <li>Посилання на сайт:  
+      <a href="https://masyknataliya.github.io/lab4_3_Masyk_N_ip_zp_51/" target="_blank">Live Demo</a>
+    </li>
+  </ul>
+
+        </section>
+
+        <section class="task-section" id="task4">
+          <h2>ЗАВДАННЯ №4</h2>
+           <p><strong>Формулювання:</strong> 
+    Станція з продажу ремонтних дроїдів.  
+    Оголоси функцію <code>makeTransaction</code>, яка очікує два параметри, значення яких будуть задаватися під час її виклику:  
+    • <code>quantity</code> — перший параметр, число, що містить кількість замовлених дроїдів  
+    • <code>pricePerDroid</code> — другий параметр, число, що містить вартість одного дроїда.  
+    Напиши код функції так, щоб вона повертала рядок з повідомленням про покупку ремонтних дроїдів:  
+    <code>"You ordered &lt;quantity&gt; droids worth &lt;totalPrice&gt; credits!"</code>, де:  
+    • <code>&lt;quantity&gt;</code> — це кількість замовлених дроїдів  
+    • <code>&lt;totalPrice&gt;</code> — це загальна вартість замовлення, тобто вартість усіх замовлених дроїдів.
+  </p>
+           <pre>
+&lt;script&gt;
+function makeTransaction(quantity, pricePerDroid) {
+  const totalPrice = quantity * pricePerDroid;
+
+  return `You ordered ${quantity} droids worth ${totalPrice} credits!`;
+}
+
+console.log(makeTransaction(5, 3000));
+console.log(makeTransaction(3, 1000));
+console.log(makeTransaction(10, 500));
+&lt;/script&gt;
+  </pre>
+          >
+          <p><strong>Результати:</strong></p>
+          <img src="lab4_4.png" alt="Скріншот Console для завдання 4" />
+
+    <li>Посилання на репозиторій:  
+      <a href="https://github.com/MasykNataliya/lab4_4_Masyk_N_ip_zp_51.git" target="_blank">GitHub Repository</a>
+    </li>
+    <li>Посилання на сайт:  
+      <a href="https://masyknataliya.github.io/lab4_4_Masyk_N_ip_zp_51/" target="_blank">Live Demo</a>
+    </li>
+  </ul>
+
+
+        </section>
+
+        <section class="task-section" id="task5">
+          <h2>ЗАВДАННЯ №5</h2>
+          <p><strong>Формулювання:</strong> ...</p>
+          <pre>
+&lt;script&gt;
+function checkForSpam(message) {
+  const normalized = message.toLowerCase();
+
+  return normalized.includes("spam") || normalized.includes("sale");
+}
+
+// Тести
+console.log(checkForSpam("Latest technology news")); // false
+console.log(checkForSpam("JavaScript weekly newsletter")); // false
+console.log(checkForSpam("Get best sale offers now!")); // true
+console.log(checkForSpam("Amazing SalE, only tonight!")); // true
+console.log(checkForSpam("[SPAM] How to earn fast money?")); // true
+&lt;/script&gt;
+  </pre>
+          <p><strong>Формулювання:</strong> 
+    Функція <code>checkForSpam(message)</code> приймає рядок (параметр <code>message</code>), перевіряє його на вміст заборонених слів <code>spam</code> і <code>sale</code>, і повертає результат перевірки.  
+    Слова в рядку параметра <code>message</code> можуть бути в довільному регістрі, наприклад <code>SPAM</code> або <code>sAlE</code>.  
+    Доповни код функції таким чином, що:
+    <ul>
+      <li>Якщо знайдено заборонене слово (<code>spam</code> або <code>sale</code>), то функція повертає буль <code>true</code>.</li>
+      <li>Якщо в рядку відсутні заборонені слова, функція повертає буль <code>false</code>.</li>
+    </ul>
+  </p>
+          <img src="lab5.png" alt="Скріншот Console для завдання 5" />
+
+            <li>Посилання на репозиторій:  
+      <a href="https://github.com/MasykNataliya/lab4_4_Masyk_N_ip_zp_51.git" target="_blank">GitHub Repository</a>
+    </li>
+    <li>Посилання на сайт:  
+      <a href="https://masyknataliya.github.io/lab4_4_Masyk_N_ip_zp_51/" target="_blank">Live Demo</a>
+    </li>
+  </ul>
+        </section>
+
+        <section class="task-section" id="task6">
+          <h2>ЗАВДАННЯ №6</h2>
+          <p><strong>Формулювання:</strong> 
+    Напиши функцію <code>filterArray(numbers, va5lue)</code>, яка приймає масив чисел (<code>numbers</code>) та значення (<code>value</code>) як параметри.  
+    Функція повинна повертати новий масив лише тих чисел із масиву <code>numbers</code>, які більші за значення <code>value</code>.  
+    Усередині функції:
+    <ul>
+      <li>Створи порожній масив, у який будеш додавати підходящі числа.</li>
+      <li>Використай цикл для ітерації кожного елемента масиву <code>numbers</code>.</li>
+      <li>Використовуй умовний оператор <code>if</code> усередині циклу для перевірки кожного елемента і додавання до свого масиву.</li>
+      <li>Поверни свій новий масив з підходящими числами як результат.</li>
+    </ul>
+  </p>
+          <pre>
+&lt;script&gt;
+function filterArray(numbers, value) {
+  const filteredNumbers = [];
+
+  for (const number of numbers) {
+    if (number > value) {
+      filteredNumbers.push(number);
+    }
+  }
+
+  return filteredNumbers;
+}
+
+// тести
+console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
+console.log(filterArray([1, 2, 3, 4, 5], 4)); // [5]
+console.log(filterArray([1, 2, 3, 4, 5], 5)); // []
+console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
+console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
+&lt;/script&gt;
+  </pre>
+          <p><strong>Результати:</strong></p>
+          <img src="lab_6.png" alt="Скріншот Console для завдання 6" />
+            <li>Посилання на репозиторій:  
+      <a href="https://github.com/MasykNataliya/lab4_4_Masyk_N_ip_zp_51.git" target="_blank">GitHub Repository</a>
+    </li>
+    <li>Посилання на сайт:  
+      <a href="https://masyknataliya.github.io/lab4_4_Masyk_N_ip_zp_51/" target="_blank">Live Demo</a>
+    </li>
+  </ul>
+        </section>
+
+        <section class="task-section" id="task7">
+          <h2>ЗАВДАННЯ №7</h2>
+          <p><strong>Формулювання:</strong> ...</p>
+         <pre>
+&lt;script&gt;
+function buildArray(numbers) {
+  const divisibleBy2 = [];
+  const divisibleBy2And3 = [];
+  const divisibleBy3 = [];
+
+  for (const num of numbers) {
+    if (num % 2 === 0 && num % 3 === 0) {
+      divisibleBy2And3.push(num);
+    } else if (num % 2 === 0) {
+      divisibleBy2.push(num);
+    } else if (num % 3 === 0) {
+      divisibleBy3.push(num);
+    }
+  }
+  return divisibleBy2.concat(divisibleBy2And3).concat(divisibleBy3);
+}
+
+// тести
+const inputArray = [2, 3, 4, 6, 9, 12, 15, 18, 20];
+const outputArray = buildArray(inputArray);
+
+console.log("Вхідний масив:", inputArray);
+console.log("Вихідний масив:", outputArray);
+
+// Швидке сортування
+function quickSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+  const pivot = arr[arr.length - 1];
+  const left = [];
+  const right = [];
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] < pivot) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
+  }
+  return [...quickSort(left), pivot, ...quickSort(right)];
+}
+
+const sortedArray = quickSort([...inputArray]);
+console.log("Вихідний масив (сортування):", sortedArray);
+&lt;/script&gt;
+  </pre>
+          <p><strong>Формулювання:</strong> 
+    1. Заданий масив цілих чисел. Побудувати новий масив, в якому спочатку стоять числа, що діляться на 2, потім ті, що діляться на 2 та 3, потім на 3.  
+    Надрукувати вхідний та вихідний масиви. Застосувати функції.  
+    <br>
+    2. Упорядкувати масив у порядку зростання (метод швидкого сортування).  
+    Надрукувати вхідний та вихідний масив. Застосувати функції.
+  </p>
+          <img src="lab7.png" alt="Скріншот Console для завдання 7" />
+  <li>Посилання на репозиторій:  
+      <a href="https://github.com/MasykNataliya/lab4_4_Masyk_N_ip_zp_51.git" target="_blank">GitHub Repository</a>
+    </li>
+    <li>Посилання на сайт:  
+      <a href="https://masyknataliya.github.io/lab4_4_Masyk_N_ip_zp_51/" target="_blank">Live Demo</a>
+    </li>
+  </ul>
+
+        </section>
+
+        <section class="task-section" id="task8">
+          <h2>ЗАВДАННЯ №8</h2>
+          <p><strong>Формулювання:</strong> 
+    Є двовимірний масив додатніх і від’ємних чисел (об’явити та проініціалізувати генератором випадкових чисел).  
+    Вивести його у Console браузера.  
+    Створити два масива: масив додатніх чисел і масив від’ємних чисел.  
+    Третій елемент у додатньому масиві замінити на від’ємне значення, яке буде введено за допомогою <code>prompt()</code>.  
+    Вивести оновлені масиви у Console браузера.
+  </p>
+           <pre>
+&lt;script&gt;
+const rows = 2;
+const cols = 5;
+const matrix = [];
+
+// Генерація випадкових чисел від -10 до 10
+for (let i = 0; i < rows; i++) {
+  const row = [];
+  for (let j = 0; j < cols; j++) {
+    const randomNum = Math.floor(Math.random() * 21) - 10;
+    row.push(randomNum);
+  }
+  matrix.push(row);
+}
+
+console.log("Двовимірний масив 2×5:", matrix);
+
+const positives = [];
+const negatives = [];
+
+for (const row of matrix) {
+  const posRow = [];
+  const negRow = [];
+  for (const num of row) {
+    if (num > 0) {
+      posRow.push(num);
+    } else if (num < 0) {
+      negRow.push(num);
+    }
+  }
+  positives.push(posRow);
+  negatives.push(negRow);
+}
+
+console.log("Двовимірний масив додатніх чисел:", positives);
+console.log("Двовимірний масив від’ємних чисел:", negatives);
+
+// Заміна третього елемента у першому рядку додатніх чисел
+if (positives[0].length >= 3) {
+  const newNegative = Number(prompt("Введіть від’ємне число:"));
+  positives[0][2] = newNegative;
+}
+
+console.log("Оновлений масив додатніх чисел:", positives);
+&lt;/script&gt;
+  </pre>
+          <p><strong>Результати:</strong></p>
+          <img src="lab8.png" alt="Скріншот Console для завдання 8" />
+
+            <li>Посилання на репозиторій:  
+      <a href="https://github.com/MasykNataliya/lab4_4_Masyk_N_ip_zp_51.git" target="_blank">GitHub Repository</a>
+    </li>
+    <li>Посилання на сайт:  
+      <a href="https://masyknataliya.github.io/lab4_4_Masyk_N_ip_zp_51/" target="_blank">Live Demo</a>
+    </li>
+  </ul>
+        </section>
+
+        <section class="task-section" id="task9">
+          <h2>ЗАВДАННЯ №9</h2>
+           <p><strong>Формулювання:</strong> 
+    Візуальний елемент «Підказка при введенні».  
+    Надати можливість виведення підказки при наборі тексту у елемент уведення «текстове поле».  
+    Передбачити можливість створення списку слів‑підказок.
+  </p>
+          <section class="task-section" id="task9">
+  <h2>ЗАВДАННЯ №9</h2>
+  <p><strong>Формулювання:</strong> 
+    Візуальний елемент «Підказка при введенні».  
+    Надати можливість виведення підказки при наборі тексту у елемент уведення «текстове поле».  
+    Передбачити можливість створення списку слів‑підказок.
+  </p>
+
+  <p><strong>Програмний код:</strong></p>
+  <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="uk"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Підказка при введенні&lt;/title&gt;
+  &lt;style&gt;
+    #suggestions div {
+      padding: 3px;
+      cursor: pointer;
+    }
+    #suggestions div:hover {
+      background-color: #e0e0e0;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h3&gt;Введіть слово:&lt;/h3&gt;
+  &lt;input type="text" id="inputField" autocomplete="off"&gt;
+  &lt;div id="suggestions"&gt;&lt;/div&gt;
+
+  &lt;script&gt;
+    const hints = ["Київ", "Львів", "Одеса", "Харків", "Дніпро"];
+
+    const inputField = document.getElementById("inputField");
+    const suggestionsBox = document.getElementById("suggestions");
+
+    inputField.addEventListener("input", function () {
+      const text = inputField.value.toLowerCase();
+      suggestionsBox.innerHTML = "";
+
+      if (text) {
+        const results = hints.filter((h) => h.toLowerCase().includes(text));
+        for (let word of results) {
+          const div = document.createElement("div");
+          div.textContent = word;
+          div.onclick = function () {
+            inputField.value = word;
+            suggestionsBox.innerHTML = "";
+          };
+          suggestionsBox.appendChild(div);
+        }
+      }
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+  </pre>
+          <p><strong>Результати:</strong></p>
+          <img src="lab9.png" alt="Скріншот Console для завдання 9" />
+
+            <li>Посилання на репозиторій:  
+      <a href="https://github.com/MasykNataliya/lab4_4_Masyk_N_ip_zp_51.git" target="_blank">GitHub Repository</a>
+    </li>
+    <li>Посилання на сайт:  
+      <a href="https://masyknataliya.github.io/lab4_4_Masyk_N_ip_zp_51/" target="_blank">Live Demo</a>
+    </li>
+  </ul>
+        </section>
+
+        <!-- Висновки -->
+        <section class="task-section" id="conclusion">
+          <section class="task-section" id="conclusion">
+  <h2>ВИСНОВКИ</h2>
+  <p>
+    У ході виконання лабораторної роботи №4 було розглянуто та реалізовано низку практичних завдань з використанням мови програмування JavaScript.  
+    Кожне завдання мало на меті закріплення навичок роботи з базовими конструкціями та функціями:
+  </p>
+  <ul>
+    <li>Використання <code>prompt()</code>, <code>alert()</code> та <code>console.log()</code> для взаємодії з користувачем.</li>
+    <li>Застосування умовних операторів <code>if...else</code> та <code>switch-case</code> для перевірки введених даних.</li>
+    <li>Робота з функціями: створення та виклик, передача параметрів, повернення результатів.</li>
+    <li>Обробка рядків та перевірка їх вмісту за допомогою методів <code>toLowerCase()</code> та <code>includes()</code>.</li>
+    <li>Робота з масивами: створення, фільтрація, сортування, побудова нових масивів на основі умов.</li>
+    <li>Реалізація алгоритму швидкого сортування для впорядкування даних.</li>
+    <li>Створення двовимірних масивів та їх обробка, розділення на додатні та від’ємні числа.</li>
+    <li>Розробка інтерактивного елемента «Підказка при введенні» для текстового поля.</li>
+  </ul>
+  <p>
+    Виконання завдань дозволило закріпити знання з основ програмування на JavaScript, навчитися застосовувати умовні оператори, цикли, функції та методи роботи з масивами.  
+    Окремо було розглянуто створення простих алгоритмів сортування та інтерактивних елементів інтерфейсу.  
+    Таким чином, лабораторна робота сприяла формуванню практичних навичок програмування та підготовці до більш складних завдань.
+  </p>
+</section>
+
+        </section>
+      </main>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2025 Масик Н.В. | ІП-зп51</p>
+      <p>тел. 067 921 86 26</p>
+    </footer>
+  </body>
+</html>

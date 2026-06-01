@@ -1,9 +1,10 @@
+/* Загальні стилі */
 body {
   font-family: "Rethink Sans", "Noto Sans", sans-serif;
   margin: 0;
   padding: 0;
-  background: #fdfefc; 
-  color: #2a2a2a; 
+  background: #fdfefc;
+  color: #2a2a2a;
 }
 
 /* Layout */
@@ -14,14 +15,14 @@ body {
 
 /* Side navigation */
 .sidenav {
-  width: 220px;
+  width: 250px;
   min-width: 180px;
-  max-width: 240px;
-  flex-shrink: 0; /* не дозволяє зменшуватись при стисненні */
-  background: #f5fff5; 
+  max-width: 260px;
+  flex-shrink: 0;
+  background: #f5fff5;
   padding: 20px;
   border-right: 1px solid #c8e6c9;
-  }
+}
 
 .sidenav a {
   display: block;
@@ -31,34 +32,32 @@ body {
   padding: 8px;
   border-radius: 8px;
   transition: background 0.3s;
-  font-size: 16px; 
+  font-size: 16px;
 }
 
 .sidenav a:hover {
   background: #c8e6c9;
 }
 
-/* Мілкіший шрифт для спеціальних пунктів */
 .sidenav a.small-link {
-  font-size: 13px; 
-  color: #33691e; 
-  opacity: 0.85; 
+  font-size: 13px;
+  color: #33691e;
+  opacity: 0.85;
 }
 
-/* Простий текст без посилання */
 .sidenav-text {
   display: block;
   margin-bottom: 10px;
   padding: 8px;
   font-size: 16px;
-  color: #555; 
+  color: #555;
 }
 
 /* Header */
 .events {
   text-align: center;
   padding: 20px;
-  background: linear-gradient(90deg, #e8f5e9, #f1f8e9); 
+  background: linear-gradient(90deg, #e8f5e9, #f1f8e9);
   color: #2a2a2a;
 }
 
@@ -67,8 +66,6 @@ body {
   margin: 0;
   font-weight: 600;
 }
-
-
 
 /* Author */
 .events__author {
@@ -79,7 +76,7 @@ body {
   font-style: italic;
   font-size: 18px;
   margin: 20px 0;
-  background: #f5fff5; 
+  background: #f5fff5;
   padding: 12px;
   border-radius: 12px;
 }
@@ -89,26 +86,24 @@ body {
   width: 64px;
   height: 78px;
   object-fit: cover;
-  border: 2px solid #c8e6c9; 
+  border: 2px solid #c8e6c9;
 }
 
 /* Navigation */
 .onview nav {
   display: flex;
   flex-wrap: nowrap;
-  overflow-x: auto; 
+  overflow-x: auto;
   justify-content: center;
   gap: 12px;
   padding: 20px;
   background: #f9fff9;
- font-size: 15px;
- padding: 4px 10px;
+  font-size: 15px;
 }
-
 
 .onview a {
   text-decoration: none;
-  color: #33691e; 
+  color: #33691e;
   font-size: 16px;
   font-weight: 500;
   padding: 6px 12px;
@@ -117,8 +112,8 @@ body {
 }
 
 .onview a:hover {
-  background: #c8e6c9; 
-  color: #1b1b1b; 
+  background: #c8e6c9;
+  color: #1b1b1b;
 }
 
 /* Title */
@@ -129,7 +124,7 @@ body {
 
 .title h2 {
   font-size: 30px;
-  color: #2e7d32; 
+  color: #2e7d32;
 }
 
 /* About */
@@ -138,7 +133,7 @@ body {
   margin: 0 auto;
   padding: 20px;
   border-top: 2px solid #c8e6c9;
-  background: #fdfefc; 
+  background: #fdfefc;
   border-radius: 8px;
   text-align: left;
 }
@@ -148,14 +143,14 @@ body {
   color: #33691e;
 }
 
-.aboutscreenshot{
+.aboutscreenshot {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   border-top: 2px solid #c8e6c9;
-  background: #fdfefc; 
+  background: #fdfefc;
   border-radius: 8px;
-  }
+}
 
 .aboutscreenshot h2 {
   text-align: center;
@@ -168,14 +163,47 @@ body {
   padding: 20px;
   border-top: 1px solid #c8e6c9;
   margin-top: 40px;
-  background: #e8f5e9; 
-  color: #2a2a2a; 
-}
-/* Side navigation */
-.sidenav {
-  width: 250px;
-  background: #f5fff5; 
-  padding: 20px;
-  border-right: 1px solid #c8e6c9;
+  background: #e8f5e9;
+  color: #2a2a2a;
 }
 
+/* --- Стилі для сторінки lab4.html --- */
+
+/* Контейнер завдань */
+.task-section {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f9fff9;
+  border: 1px solid #c8e6c9;
+  border-radius: 10px;
+}
+
+.task-section h2 {
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+.task-section p {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+/* Код завдання */
+.task-section pre {
+  background: #fdfefc;
+  border: 1px solid #c8e6c9;
+  padding: 12px;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 14px;
+  color: #1b1b1b;
+}
+
+/* Скріншоти */
+.task-section img {
+  max-width: 100%;
+  border: 1px solid #c8e6c9;
+  border-radius: 6px;
+  margin-top: 10px;
+}
