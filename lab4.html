@@ -64,8 +64,7 @@
             Наприклад: при введенні <code>80</code> виведе «Число додатнє».
             <em
               >Підказка: при введенні значень не забудьте зробити ряд
-              перевірок.</em
-            >
+              перевірок.</em>
           </p>
          <pre>
 &lt;script&gt;
@@ -90,7 +89,7 @@ if (number > 0) {
 }
 &lt;/script&gt;
   </pre>
-          >
+          
           <p><strong>Результати:</strong></p>
           <img src="lab4_1_1.png" alt="Скріншот Console для завдання 1" />
           <img src="lab4_1_2.png" alt="Скріншот Console для завдання 1" />
@@ -147,7 +146,7 @@ alert(result);
 console.log(`Результат: ${result}`);
 &lt;/script&gt;
   </pre>
-          >
+          
           <p><strong>Результати:</strong></p>
           <img src="lab4_2_1.png" alt="Скріншот Console для завдання 2" />
           <img src="lab4_2_2.png" alt="Скріншот Console для завдання 2" />
@@ -214,7 +213,7 @@ if (login === adminLogin) {
 }
 &lt;/script&gt;
   </pre>
-          >
+          
           <p><strong>Результати:</strong></p>
           <img src="lab4_3_1.png" alt="Скріншот Console для завдання 3" />
           <img src="lab4_3_2.png" alt="Скріншот Console для завдання 3" />
@@ -261,7 +260,8 @@ console.log(makeTransaction(10, 500));
           <p><strong>Результати:</strong></p>
           <img src="lab4_4.png" alt="Скріншот Console для завдання 4" />
 
-    <li>Посилання на репозиторій:  
+   <ul> 
+     <li>Посилання на репозиторій:  
       <a href="https://github.com/MasykNataliya/lab4_4_Masyk_N_ip_zp_51.git" target="_blank">GitHub Repository</a>
     </li>
     <li>Посилання на сайт:  
@@ -274,8 +274,15 @@ console.log(makeTransaction(10, 500));
 
         <section class="task-section" id="task5">
           <h2>ЗАВДАННЯ №5</h2>
-          <p><strong>Формулювання:</strong> ...</p>
-          <pre>
+          <p><strong>Формулювання:</strong> 
+    Функція <code>checkForSpam(message)</code> приймає рядок (параметр <code>message</code>), перевіряє його на вміст заборонених слів <code>spam</code> і <code>sale</code>, і повертає результат перевірки.  
+    Слова в рядку параметра <code>message</code> можуть бути в довільному регістрі, наприклад <code>SPAM</code> або <code>sAlE</code>.  
+    Доповни код функції таким чином, що:
+    <ul>
+      <li>Якщо знайдено заборонене слово (<code>spam</code> або <code>sale</code>), то функція повертає буль <code>true</code>.</li>
+      <li>Якщо в рядку відсутні заборонені слова, функція повертає буль <code>false</code>.</li>
+    </ul>
+  </p>
 &lt;script&gt;
 function checkForSpam(message) {
   const normalized = message.toLowerCase();
@@ -291,17 +298,9 @@ console.log(checkForSpam("Amazing SalE, only tonight!")); // true
 console.log(checkForSpam("[SPAM] How to earn fast money?")); // true
 &lt;/script&gt;
   </pre>
-          <p><strong>Формулювання:</strong> 
-    Функція <code>checkForSpam(message)</code> приймає рядок (параметр <code>message</code>), перевіряє його на вміст заборонених слів <code>spam</code> і <code>sale</code>, і повертає результат перевірки.  
-    Слова в рядку параметра <code>message</code> можуть бути в довільному регістрі, наприклад <code>SPAM</code> або <code>sAlE</code>.  
-    Доповни код функції таким чином, що:
-    <ul>
-      <li>Якщо знайдено заборонене слово (<code>spam</code> або <code>sale</code>), то функція повертає буль <code>true</code>.</li>
-      <li>Якщо в рядку відсутні заборонені слова, функція повертає буль <code>false</code>.</li>
-    </ul>
-  </p>
+          
           <img src="lab5.png" alt="Скріншот Console для завдання 5" />
-
+<ul> 
             <li>Посилання на репозиторій:  
       <a href="https://github.com/MasykNataliya/lab4_4_Masyk_N_ip_zp_51.git" target="_blank">GitHub Repository</a>
     </li>
@@ -348,7 +347,8 @@ console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
   </pre>
           <p><strong>Результати:</strong></p>
           <img src="lab_6.png" alt="Скріншот Console для завдання 6" />
-            <li>Посилання на репозиторій:  
+            <ul> 
+              <li>Посилання на репозиторій:  
       <a href="https://github.com/MasykNataliya/lab4_4_Masyk_N_ip_zp_51.git" target="_blank">GitHub Repository</a>
     </li>
     <li>Посилання на сайт:  
@@ -359,7 +359,13 @@ console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
 
         <section class="task-section" id="task7">
           <h2>ЗАВДАННЯ №7</h2>
-          <p><strong>Формулювання:</strong> ...</p>
+          <p><strong>Формулювання:</strong> 
+    1. Заданий масив цілих чисел. Побудувати новий масив, в якому спочатку стоять числа, що діляться на 2, потім ті, що діляться на 2 та 3, потім на 3.  
+    Надрукувати вхідний та вихідний масиви. Застосувати функції.  
+    <br>
+    2. Упорядкувати масив у порядку зростання (метод швидкого сортування).  
+    Надрукувати вхідний та вихідний масив. Застосувати функції.
+  </p>
          <pre>
 &lt;script&gt;
 function buildArray(numbers) {
@@ -409,14 +415,9 @@ const sortedArray = quickSort([...inputArray]);
 console.log("Вихідний масив (сортування):", sortedArray);
 &lt;/script&gt;
   </pre>
-          <p><strong>Формулювання:</strong> 
-    1. Заданий масив цілих чисел. Побудувати новий масив, в якому спочатку стоять числа, що діляться на 2, потім ті, що діляться на 2 та 3, потім на 3.  
-    Надрукувати вхідний та вихідний масиви. Застосувати функції.  
-    <br>
-    2. Упорядкувати масив у порядку зростання (метод швидкого сортування).  
-    Надрукувати вхідний та вихідний масив. Застосувати функції.
-  </p>
+          
           <img src="lab7.png" alt="Скріншот Console для завдання 7" />
+ <ul>
   <li>Посилання на репозиторій:  
       <a href="https://github.com/MasykNataliya/lab4_4_Masyk_N_ip_zp_51.git" target="_blank">GitHub Repository</a>
     </li>
@@ -486,7 +487,7 @@ console.log("Оновлений масив додатніх чисел:", positi
           <p><strong>Результати:</strong></p>
           <img src="lab8.png" alt="Скріншот Console для завдання 8" />
 
-            <li>Посилання на репозиторій:  
+           <ul>  <li>Посилання на репозиторій:  
       <a href="https://github.com/MasykNataliya/lab4_4_Masyk_N_ip_zp_51.git" target="_blank">GitHub Repository</a>
     </li>
     <li>Посилання на сайт:  
@@ -562,7 +563,8 @@ console.log("Оновлений масив додатніх чисел:", positi
           <p><strong>Результати:</strong></p>
           <img src="lab9.png" alt="Скріншот Console для завдання 9" />
 
-            <li>Посилання на репозиторій:  
+            <ul> 
+           <li>Посилання на репозиторій:  
       <a href="https://github.com/MasykNataliya/lab4_4_Masyk_N_ip_zp_51.git" target="_blank">GitHub Repository</a>
     </li>
     <li>Посилання на сайт:  

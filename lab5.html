@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Звіт по Лабораторній роботі №5</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <!-- Бокове меню -->
+      <aside class="sidenav">
+        <a href="#task1">ЗАВДАННЯ №1</a>
+        <a href="#task2">ЗАВДАННЯ №2</a>
+        <a href="#task3">ЗАВДАННЯ №3</a>
+        <a href="#task4">ЗАВДАННЯ №4</a>
+        <a href="#task5">ЗАВДАННЯ №5</a>
+        <a href="#task6">ЗАВДАННЯ №6</a>
+        <a href="#task7">ЗАВДАННЯ №7</a>
+        <a href="#task8">ЗАВДАННЯ №8</a>
+        <a href="#task9">ЗАВДАННЯ №9</a>
+        <a href="#task10">ЗАВДАННЯ №10</a>
+        <a href="#conclusion">Висновки</a>
+      </aside>
+
+      <!-- Основний контент -->
+      <main class="content">
+        <header class="events">
+          <div class="events__title">
+            <p>ЗВІТИ З ЛАБОРАТОРНИХ РОБІТ З</p>
+            <p>ДИСЦИПЛІНИ “Проєктування WEB-застосувань”</p>
+          </div>
+        </header>
+
+        <div class="events__author">
+          <p>Виконавець: Студентка групи ІП-зп51 Масик Н.В.</p>
+          <img src="2.jpg" alt="Фото" class="events__photo" />
+        </div>
+
+        <!-- Верхнє меню вибору лабораторних -->
+        <nav class="onview">
+          <a href="lab1.html">Лабораторна 1</a>
+          <a href="lab2.html">Лабораторна 2</a>
+          <a href="lab3.html">Лабораторна 3</a>
+          <a href="lab4.html">Лабораторна 4</a>
+          <a href="lab5.html">Лабораторна 5</a>
+          <a href="lab6.html">Лабораторна 6</a>
+          <a href="lab7.html">Лабораторна 7</a>
+          <a href="lab8.html">Лабораторна 8</a>
+          <a href="lab9.html">Лабораторна 9</a>
+        </nav>
+
+        <section class="title">
+          <h2>Лабораторна робота №5</h2>
+        </section>
+
+        <!-- Завдання 1–10 -->
+        <section class="task-section" id="task1">
+          <h2>ЗАВДАННЯ №1</h2>
+           <p>
+    <strong>Формулювання:</strong> Напишіть наступні функції:
+    <br>
+    <code>createProduct(obj, callback)</code> – приймає об'єкт товару без id, а також коллбек. 
+    Функція створює об'єкт товару, додаючи йому унікальний ідентифікатор у властивість <code>id</code> 
+    та викликає коллбек, передаючи йому створений об'єкт.
+    <br>
+    <code>logProduct(product)</code> – коллбек, що приймає об'єкт продукту і логуючий його в консоль.
+    <br>
+    <code>logTotalPrice(product)</code> – коллбек, що приймає об'єкт продукту і логіює загальну вартість товару в консоль.
+  </p>
+        <pre>
+&lt;script&gt;
+function createProduct(obj, callback) {
+  obj.id = Date.now();
+  callback(obj);
+}
+
+function logProduct(product) {
+  console.log(product);
+}
+
+function logTotalPrice(product) {
+  console.log(product.price * product.quantity);
+}
+
+// приклади в консоль
+createProduct({ name: "Apple", price: 10, quantity: 5 }, logProduct);
+createProduct({ name: "Banana", price: 7, quantity: 3 }, logTotalPrice);
+&lt;/script&gt;
+  </pre>
+          <p><strong>Результати:</strong></p>
+          <img src="lab5_1.png" alt="Скріншот Console для завдання 1" />
+        
+
+<ul>
+    <li>Посилання на репозиторій:  
+      <a href="https://github.com/MasykNataliya/lab5_MasykN_ip_zp_51.git" target="_blank">GitHub Repository</a>
+    </li>
+    <li>Посилання на сайт:  
+      <a href="https://masyknataliya.github.io/lab5_MasykN_ip_zp_51/" target="_blank">Live Demo</a>
+    </li>
+  </ul>
+
+        </section>
+
+        <section class="task-section" id="task2">
+          <h2>ЗАВДАННЯ №2</h2>
+           <p>
+    <strong>Формулювання:</strong> З об'єкту <code>medicines</code> потрібно отримати масив, 
+    у якому будуть лише назви препаратів. 
+    З масиву потрібно прибрати медикаменти, в яких строк зберігання уже пройшов. 
+    У новому масиві відсортувати медикаменти у хронологічному порядку. 
+    Результат вивести у консоль. Використати стрілочні функції.
+  </p>
+       
+  <pre>
+&lt;script&gt;
+const medicines = {
+  Аналгін: new Date("2022-05-01"),
+  Ношпа: new Date("2026-07-02"),
+  Альфахолін: new Date("2024-12-21"),
+  Аспірин: new Date("2026-08-15"),
+  Аспаркам: new Date("2024-04-18"),
+};
+
+const today = new Date();
+
+const result = Object.entries(medicines)
+  .filter(([name, date]) => date > today)       
+  .sort((a, b) => a[1] - b[1])                  
+  .map(([name]) => name);                       
+
+console.log(result);
+&lt;/script&gt;
+  </pre>
+          
+          <p><strong>Результати:</strong></p>
+          <img src="lab5_2.png" alt="Скріншот Console для завдання 2" />
+          
+<ul>
+    <li>Посилання на репозиторій:  
+      <a href="https://github.com/MasykNataliya/lab5_MasykN_ip_zp_51.git" target="_blank">GitHub Repository</a>
+    </li>
+    <li>Посилання на сайт:  
+      <a href="https://masyknataliya.github.io/lab5_MasykN_ip_zp_51/" target="_blank">Live Demo</a>
+    </li>
+  </ul>
+
+        </section>
+
+        <section class="task-section" id="task3">
+          <h2>ЗАВДАННЯ №3</h2>
+           <p>
+    <strong>Формулювання:</strong> Напишіть функцію, яка приймає масив об'єктів і повертає новий масив.  
+    Зробіть знижку 20% на всі фрукти у масиві.  
+    Надайте <code>id</code> для кожного продукту.  
+    <br>
+    <code>const fruits = [ { name: "apple", price: 200 }, { name: "orange", price: 300 }, { name: "grapes", price: 750 } ];</code>
+  </p>
+  <pre>
+&lt;script&gt;
+const fruits = [
+  { name: "apple", price: 200 },
+  { name: "orange", price: 300 },
+  { name: "grapes", price: 750 },
+];
+
+function makeDiscount(fruits) {
+  return fruits.map((fruit, index) => {
+    return {
+      id: index + 1,                
+      name: fruit.name,             
+      price: fruit.price * 0.8,    
+    };
+  });
+}
+
+const newFruits = makeDiscount(fruits);
+console.log(newFruits);
+&lt;/script&gt;
+  </pre>
+          
+          <p><strong>Результати:</strong></p>
+          <img src="lab5_3.png" alt="Скріншот Console для завдання 3" />
+          
+<ul>
+   <li>Посилання на репозиторій:  
+      <a href="https://github.com/MasykNataliya/lab5_MasykN_ip_zp_51.git" target="_blank">GitHub Repository</a>
+    </li>
+    <li>Посилання на сайт:  
+      <a href="https://masyknataliya.github.io/lab5_MasykN_ip_zp_51/" target="_blank">Live Demo</a>
+    </li>
+  </ul>
+
+        </section>
+
+        <section class="task-section" id="task4">
+          <h2>ЗАВДАННЯ №4</h2>
+           <p>
+    <strong>Формулювання:</strong> Напиши клас <code>Client</code>, який створює об'єкт 
+    з властивостями <code>login</code> та <code>email</code>.  
+    Оголоси приватні властивості <code>#login</code> та <code>#email</code>, 
+    доступ до яких зроби через геттер та сеттер <code>login</code> і <code>email</code>.
+  </p>
+  <pre>
+&lt;script&gt;
+class Client {
+  #login;
+  #email;
+
+  constructor(login, email) {
+    this.#login = login;
+    this.#email = email;
+  }
+
+  get login() {
+    return this.#login;
+  }
+
+  set login(newLogin) {
+    this.#login = newLogin;
+  }
+
+  get email() {
+    return this.#email;
+  }
+
+  set email(newEmail) {
+    this.#email = newEmail;
+  }
+}
+
+// приклади для тестів
+const client1 = new Client("user123", "user123@gmail.com");
+
+console.log(client1.login); // user123
+console.log(client1.email); // user123@gmail.com
+
+client1.login = "newUser";
+client1.email = "newUser@gmail.com";
+
+console.log(client1.login); // newUser
+console.log(client1.email); // newUser@gmail.com
+&lt;/script&gt;
+  </pre>
+          
+          <p><strong>Результати:</strong></p>
+          <img src="lab5_4.png" alt="Скріншот Console для завдання 4" />
+          
+<ul>
+    <li>Посилання на репозиторій:  
+      <a href="https://github.com/MasykNataliya/lab5_MasykN_ip_zp_51.git" target="_blank">GitHub Repository</a>
+    </li>
+    <li>Посилання на сайт:  
+      <a href="https://masyknataliya.github.io/lab5_MasykN_ip_zp_51/" target="_blank">Live Demo</a>
+    </li>
+  </ul>
+
+
+        </section>
+
+        <section class="task-section" id="task5">
+          <h2>ЗАВДАННЯ №5</h2>
+          <section class="task-section" id="task5">
+  <h2>ЗАВДАННЯ №5</h2>
+  <p>
+    <strong>Формулювання:</strong> Поверніть об'єкт, в якому вказано кількість тегів.  
+    Очікуваний результат: <code>{ js: 3, nodejs: 3, html: 2, css: 2, react: 2 }</code>.
+  </p>
+  <pre>
+&lt;script&gt;
+const tweets = [
+  { id: "000", likes: 5, tags: ["js", "nodejs"] },
+  { id: "001", likes: 2, tags: ["html", "css"] },
+  { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+  { id: "003", likes: 8, tags: ["css", "react"] },
+  { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+];
+
+// збираємо всі теги в один масив
+const allTags = tweets.flatMap((tweet) => tweet.tags);
+
+// рахуємо кількість кожного тегу
+const tagCount = allTags.reduce((acc, tag) => {
+  acc[tag] = (acc[tag] || 0) + 1;
+  return acc;
+}, {});
+
+console.log(tagCount);
+&lt;/script&gt;
+  </pre>
+         
+          <img src="lab5_5.png" alt="Скріншот Console для завдання 5" />
+<ul> 
+           <li>Посилання на репозиторій:  
+      <a href="https://github.com/MasykNataliya/lab5_MasykN_ip_zp_51.git" target="_blank">GitHub Repository</a>
+    </li>
+    <li>Посилання на сайт:  
+      <a href="https://masyknataliya.github.io/lab5_MasykN_ip_zp_51/" target="_blank">Live Demo</a>
+    </li>
+  </ul>
+        </section>
+
+        <section class="task-section" id="task6">
+          <h2>ЗАВДАННЯ №6</h2>
+          <p>
+    <strong>Формулювання:</strong> Напишіть функцію <code>checkBrackets(str)</code>, яка приймає рядок JS‑коду і перевіряє правильність закриття дужок <code>() { } [ ]</code>.  
+    Якщо рядок містить коректний код — функція повертає <code>true</code>.  
+    В іншому випадку — <code>false</code>.
+  </p>
+  <pre>
+&lt;script&gt;
+function checkBrackets(str) {
+  const stack = [];
+  const brackets = {
+    ")": "(",
+    "}": "{",
+    "]": "[",
+  };
+
+  for (let char of str) {
+    if (["(", "{", "["].includes(char)) {
+      stack.push(char);
+    } else if ([")", "}", "]"].includes(char)) {
+      if (stack.pop() !== brackets[char]) {
+        return false;
+      }
+    }
+  }
+
+  return stack.length === 0;
+}
+
+// приклади
+console.log(checkBrackets("someFn()"));              // true
+console.log(checkBrackets("{[()]}"));                // true
+console.log(checkBrackets("{[(])}"));                // false
+console.log(checkBrackets("function() { [ ] }"));    // true
+&lt;/script&gt;
+  </pre>
+          <p><strong>Результати:</strong></p>
+          <img src="lab5_6.png" alt="Скріншот Console для завдання 6" />
+
+            <ul> 
+           <li>Посилання на репозиторій:  
+      <a href="https://github.com/MasykNataliya/lab5_MasykN_ip_zp_51.git" target="_blank">GitHub Repository</a>
+    </li>
+    <li>Посилання на сайт:  
+      <a href="https://masyknataliya.github.io/lab5_MasykN_ip_zp_51/" target="_blank">Live Demo</a>
+    </li>
+  </ul>
+        </section>
+
+        <section class="task-section" id="task7">
+          <h2>ЗАВДАННЯ №7</h2>
+            <p> <strong>Формулювання:</strong> Дано масив об'єктів.  
+    Створіть новий масив, що містить усі значення з масивів <code>values</code> кожного об'єкта, збережених в одному масиві.  
+    Очікуваний результат: <code>[1, 2, 3, 4, 5, 6, 7, 8, 9]</code>.
+  </p>
+  <pre>
+&lt;script&gt;
+const data = [
+  { id: 1, values: [1, 2, 3] },
+  { id: 2, values: [4, 5, 6] },
+  { id: 3, values: [7, 8, 9] },
+];
+
+let result = [];
+
+for (const item of data) {
+  result = result.concat(item.values);
+}
+
+console.log(result);
+// [1, 2, 3, 4, 5, 6, 7, 8, 9]
+&lt;/script&gt;
+  </pre>
+  <pre>
+&lt;script&gt;
+const data = [
+  { id: 1, values: [1, 2, 3] },
+  { id: 2, values: [4, 5, 6] },
+  { id: 3, values: [7, 8, 9] },
+];
+
+let result = [];
+
+for (const item of data) {
+  result = result.concat(item.values);
+}
+
+console.log(result);
+// [1, 2, 3, 4, 5, 6, 7, 8, 9]
+&lt;/script&gt;
+  </pre>
+          <img src="lab5_7.png" alt="Скріншот Console для завдання 7" />
+  
+          <ul> 
+           <li>Посилання на репозиторій:  
+      <a href="https://github.com/MasykNataliya/lab5_MasykN_ip_zp_51.git" target="_blank">GitHub Repository</a>
+    </li>
+    <li>Посилання на сайт:  
+      <a href="https://masyknataliya.github.io/lab5_MasykN_ip_zp_51/" target="_blank">Live Demo</a>
+    </li>
+  </ul>
+
+        </section>
+
+        <section class="task-section" id="task8">
+          <h2>ЗАВДАННЯ №8</h2>
+          <p>
+    <strong>Формулювання:</strong> Дано масив чисел <code>[2, 4, 6, 8, 10]</code>.  
+    Перевірте, чи є кожен елемент масиву парним.  
+    Очікуваний результат: <code>true</code>.
+  </p>
+  <pre>
+&lt;script&gt;
+const numbers = [2, 4, 6, 8, 10];
+
+let result = true;
+for (let num of numbers) {
+  if (num % 2 !== 0) {
+    result = false;
+    break;
+  }
+}
+
+console.log(result); // true
+&lt;/script&gt;
+  </pre>
+          <p><strong>Результати:</strong></p>
+          <img src="lab5_8.png" alt="Скріншот Console для завдання 8" />
+
+            <ul> 
+           <li>Посилання на репозиторій:  
+      <a href="https://github.com/MasykNataliya/lab5_MasykN_ip_zp_51.git" target="_blank">GitHub Repository</a>
+    </li>
+    <li>Посилання на сайт:  
+      <a href="https://masyknataliya.github.io/lab5_MasykN_ip_zp_51/" target="_blank">Live Demo</a>
+    </li>
+  </ul>
+        </section>
+
+        <section class="task-section" id="task9">
+          <h2>ЗАВДАННЯ №9</h2>
+           <p>
+    <strong>Формулювання:</strong> Відсортуйте масив рядків <code>["banana", "orange", "apple", "pear"]</code> у порядку алфавіту.  
+    Очікуваний результат: <code>["apple", "banana", "orange", "pear"]</code>.
+  </p>
+  <pre>
+&lt;script&gt;
+const stringArray = ["banana", "Orange", "apple", "Pear"];
+
+const result = stringArray.sort((a, b) =>
+  a.toLowerCase().localeCompare(b.toLowerCase())
+);
+
+console.log(result);
+// ["apple", "banana", "Orange", "Pear"]
+&lt;/script&gt;
+  </pre>
+          <p><strong>Результати:</strong></p>
+          <img src="lab5_9.png" alt="Скріншот Console для завдання 9" />
+
+            <ul> 
+           <li>Посилання на репозиторій:  
+      <a href="https://github.com/MasykNataliya/lab5_MasykN_ip_zp_51.git" target="_blank">GitHub Repository</a>
+    </li>
+    <li>Посилання на сайт:  
+      <a href="https://masyknataliya.github.io/lab5_MasykN_ip_zp_51/" target="_blank">Live Demo</a>
+    </li>
+  </ul>
+        </section>
+        <section class="task-section" id="task10">
+          <h2>ЗАВДАННЯ №10</h2>
+           <p>
+    <strong>Формулювання:</strong> Розроби клас <code>Calculator</code>, який дозволяє виконувати арифметичні операції над числом за допомогою методів класу, підтримуючи ланцюжковий виклик (<em>method chaining</em>).  
+    <br>Вимоги до класу:
+    <ul>
+      <li><code>number(value)</code> – встановлює початкове значення для наступних обчислень. Повертає <code>this</code>.</li>
+      <li><code>getResult()</code> – повертає поточний результат усіх операцій.</li>
+      <li><code>add(value)</code> – додає число до поточного значення. Повертає <code>this</code>.</li>
+      <li><code>subtract(value)</code> – віднімає число від поточного значення. Повертає <code>this</code>.</li>
+      <li><code>multiply(value)</code> – множить поточне значення на число. Повертає <code>this</code>.</li>
+      <li><code>divide(value)</code> – ділить поточне значення на число, якщо воно не дорівнює 0. Інакше викидає помилку. Повертає <code>this</code>.</li>
+    </ul>
+  </p>
+  <pre>
+&lt;script&gt;
+class Calculator {
+  constructor() {
+    this.value = 0;
+  }
+
+  number(value) {
+    this.value = value;
+    return this;
+  }
+
+  add(value) {
+    this.value += value;
+    return this;
+  }
+
+  subtract(value) {
+    this.value -= value;
+    return this;
+  }
+
+  multiply(value) {
+    this.value *= value;
+    return this;
+  }
+
+  divide(value) {
+    if (value === 0) {
+      throw new Error("Ділення на нуль неможливе!");
+    }
+    this.value /= value;
+    return this;
+  }
+
+  getResult() {
+    return this.value;
+  }
+}
+
+// Приклад використання
+const calc = new Calculator();
+
+const result = calc
+  .number(10)      // встановлюємо початкове значення 10
+  .add(5)          // додаємо 5 → 15
+  .subtract(3)     // віднімаємо 3 → 12
+  .multiply(4)     // множимо на 4 → 48
+  .divide(2)       // ділимо на 2 → 24
+  .getResult();    // отримуємо результат
+
+console.log(result); // 24
+&lt;/script&gt;
+  </pre>
+          <p><strong>Результати:</strong></p>
+          <img src="lab5_10.png" alt="Скріншот Console для завдання 10" />
+
+           <ul> 
+           <li>Посилання на репозиторій:  
+      <a href="https://github.com/MasykNataliya/lab5_MasykN_ip_zp_51.git" target="_blank">GitHub Repository</a>
+    </li>
+    <li>Посилання на сайт:  
+      <a href="https://masyknataliya.github.io/lab5_MasykN_ip_zp_51/" target="_blank">Live Demo</a>
+    </li>
+  </ul>
+        </section>
+
+        <!-- Висновки -->
+        <section class="task-section" id="conclusion">
+        <h2>ВИСНОВКИ</h2>
+  <p>
+    У ході виконання лабораторної роботи №4 було розглянуто та реалізовано низку практичних завдань з використанням мови програмування JavaScript.  
+    Кожне завдання мало на меті закріплення навичок роботи з базовими конструкціями та функціями:
+  </p>
+  <ul>
+    <li>Використання <code>prompt()</code>, <code>alert()</code> та <code>console.log()</code> для взаємодії з користувачем.</li>
+    <li>Застосування умовних операторів <code>if...else</code> та <code>switch-case</code> для перевірки введених даних.</li>
+    <li>Робота з функціями: створення та виклик, передача параметрів, повернення результатів.</li>
+    <li>Обробка рядків та перевірка їх вмісту за допомогою методів <code>toLowerCase()</code> та <code>includes()</code>.</li>
+    <li>Робота з масивами: створення, фільтрація, сортування, побудова нових масивів на основі умов.</li>
+    <li>Реалізація алгоритму швидкого сортування для впорядкування даних.</li>
+    <li>Створення двовимірних масивів та їх обробка, розділення на додатні та від’ємні числа.</li>
+    <li>Розробка інтерактивного елемента «Підказка при введенні» для текстового поля.</li>
+  </ul>
+  <p>
+    Виконання завдань дозволило закріпити знання з основ програмування на JavaScript, навчитися застосовувати умовні оператори, цикли, функції та методи роботи з масивами.  
+    Окремо було розглянуто створення простих алгоритмів сортування та інтерактивних елементів інтерфейсу.  
+    Таким чином, лабораторна робота сприяла формуванню практичних навичок програмування та підготовці до більш складних завдань.
+  </p>
+</section>
+
+
+       
+       
+
+        </section>
+      </main>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2025 Масик Н.В. | ІП-зп51</p>
+      <p>тел. 067 921 86 26</p>
+    </footer>
+  </body>
+</html>
