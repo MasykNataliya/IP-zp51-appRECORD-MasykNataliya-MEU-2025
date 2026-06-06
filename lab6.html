@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Звіт по Лабораторній роботі №5</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <!-- Бокове меню -->
+      <aside class="sidenav">
+        <a href="#task1">ЗАВДАННЯ №1</a>
+        <a href="#task2">ЗАВДАННЯ №2</a>
+        <a href="#task3">ЗАВДАННЯ №3</a>
+        <a href="#task4">ЗАВДАННЯ №4</a>
+        <a href="#task5">ЗАВДАННЯ №5</a>
+        <a href="#task6">ЗАВДАННЯ №6</a>
+        <a href="#task7">ЗАВДАННЯ №7</a>
+        <a href="#task8">ЗАВДАННЯ №8</a>
+        <a href="#task9">ЗАВДАННЯ №9</a>
+        <a href="#conclusion">Висновки</a>
+      </aside>
+
+      <!-- Основний контент -->
+      <main class="content">
+        <header class="events">
+          <div class="events__title">
+            <p>ЗВІТИ З ЛАБОРАТОРНИХ РОБІТ З</p>
+            <p>ДИСЦИПЛІНИ “Проєктування WEB-застосувань”</p>
+          </div>
+        </header>
+
+        <div class="events__author">
+          <p>Виконавець: Студентка групи ІП-зп51 Масик Н.В.</p>
+          <img src="2.jpg" alt="Фото" class="events__photo" />
+        </div>
+
+        <!-- Верхнє меню вибору лабораторних -->
+        <nav class="onview">
+          <a href="lab1.html">Лабораторна 1</a>
+          <a href="lab2.html">Лабораторна 2</a>
+          <a href="lab3.html">Лабораторна 3</a>
+          <a href="lab4.html">Лабораторна 4</a>
+          <a href="lab5.html">Лабораторна 5</a>
+          <a href="lab6.html">Лабораторна 6</a>
+          <a href="lab7.html">Лабораторна 7</a>
+        </nav>
+
+        <section class="title">
+          <h2>Лабораторна робота №6</h2>
+        </section>
+
+        <!-- Завдання 1–7 -->
+        <section class="task-section" id="task1">
+          <h2>ЗАВДАННЯ №1</h2>
+          <p>
+            <strong>Формулювання:</strong> У звітному HTML-документі створити
+            html‑розмітку, яка складається з наступних елементів: текст, кнопка,
+            поле введення.
+            <br />
+            Натискання на кнопку <code>SHOW ME</code> має виводити значення з
+            поля введення у консолі.
+            <br />
+            У звітному HTML-документі відобразити скрін програмного коду.
+          </p>
+
+          <p>Введіть будь-який текст:</p>
+          <input type="text" id="task1Input" placeholder="Ваш текст" />
+          <button id="showBtn">SHOW ME</button>
+
+          <pre>
+&lt;script&gt;
+const task1Input = document.getElementById("task1Input");
+const showBtn = document.getElementById("showBtn");
+
+showBtn.addEventListener("click", () => {
+  console.log(task1Input.value);
+});
+&lt;/script&gt;
+</pre
+          >
+
+          <p><strong>Результати:</strong></p>
+          <img src="lab6_1.png" alt="Скріншот Console для завдання 1" />
+
+         <ul>
+              <li>
+                Посилання на репозиторій:
+                <a
+                  href="https://github.com/MasykNataliya/LR6_OCl_ip_zp_51_MasykNataliya.git"
+                  target="_blank"
+                  >GitHub Repository</a
+                >
+              </li>
+              <li>
+                Посилання на сайт:
+                <a
+                  href="https://masyknataliya.github.io/LR6_OCl_ip_zp_51_MasykNataliya/"
+                  target="_blank"
+                  >Live Demo</a
+                >
+              </li>
+            </ul>
+        </section>
+
+        <section class="task-section" id="task2">
+          <h2>ЗАВДАННЯ №2</h2>
+          <p>
+            <strong>Формулювання:</strong> У звітному HTML-документі створити
+            html‑розмітку, яка складається з наступних елементів: текст, кнопка,
+            інпут (поле введення).
+            <br />
+            Кнопка <code>Приховати</code> ховає текст, виводячи зірочки замість
+            введеної інформації, замінює назву кнопки на <code>Розкрити</code>.
+            При повторному натисканні текст знову стає доступним і кнопка
+            набуває початкового вигляду.
+            <br />
+            У звітному HTML-документі відобразити скрін програмного коду.
+          </p>
+
+          <label for="password">Пароль:</label>
+          <input type="password" id="password" placeholder="Введіть пароль" />
+          <button id="toggleBtn">Розкрити</button>
+
+          <pre>
+&lt;script&gt;
+const passwordField = document.getElementById("password");
+const toggleBtn = document.getElementById("toggleBtn");
+
+toggleBtn.addEventListener("click", () => {
+  if (passwordField.type === "password") {
+    passwordField.type = "text";
+    toggleBtn.textContent = "Приховати";
+  } else {
+    passwordField.type = "password";
+    toggleBtn.textContent = "Розкрити";
+  }
+});
+&lt;/script&gt;
+</pre
+          >
+
+          <p><strong>Результати:</strong></p>
+          <img src="lab6_21.png" alt="Скріншот Console для завдання 2" />
+          <img src="lab6_22.png" alt="Скріншот Console для завдання 2" />
+
+         <ul>
+              <li>
+                Посилання на репозиторій:
+                <a
+                  href="https://github.com/MasykNataliya/LR6_OCl_ip_zp_51_MasykNataliya.git"
+                  target="_blank"
+                  >GitHub Repository</a
+                >
+              </li>
+              <li>
+                Посилання на сайт:
+                <a
+                  href="https://masyknataliya.github.io/LR6_OCl_ip_zp_51_MasykNataliya/"
+                  target="_blank"
+                  >Live Demo</a
+                >
+              </li>
+            </ul>
+        </section>
+
+        <section class="task-section" id="task3">
+          <h2>ЗАВДАННЯ №3</h2>
+          <p>
+            <strong>Формулювання:</strong> У звітному HTML-документі створити
+            html‑розмітку, яка складається з наступних елементів:
+            <br />
+            – текст, з використанням селектора класу
+            <code>class="taskTitle"</code>,
+            <br />
+            – div, з використанням селектора ідентифікатора
+            <code>id="place"</code>. <br /><br />
+            Додайте слухач кліку на <code>window</code> і визначте, чи клікнув
+            користувач у <code>div</code> з <code>id="place"</code>.
+            <br /><br />
+            <em>Примітка:</em> Якщо користувач клікнув на зеленому прямокутнику
+            – у консолі виведе <code>true</code>. У протилежному випадку –
+            <code>false</code>. <br /><br />
+            У звітному HTML-документі відобразити скрін програмного коду.
+          </p>
+
+          <h2 class="taskTitle">Завдання 5</h2>
+          <div
+            id="place"
+            style="
+              width: 200px;
+              height: 100px;
+              background-color: lightgreen;
+              text-align: center;
+              line-height: 100px;
+            "
+          >
+            Клікни тут
+          </div>
+
+          <pre>
+&lt;script&gt;
+const placeDiv = document.getElementById("place");
+
+window.addEventListener("click", (event) =&gt; {
+  if (event.target === placeDiv) {
+    console.log(true); // Клік у div
+  } else {
+    console.log(false); // Клік поза div
+  }
+});
+&lt;/script&gt;
+</pre
+          >
+
+          <p><strong>Результати:</strong></p>
+          <img src="lab6_3.png" alt="Скріншот Console для завдання 3" />
+
+          <ul>
+              <li>
+                Посилання на репозиторій:
+                <a
+                  href="https://github.com/MasykNataliya/LR6_OCl_ip_zp_51_MasykNataliya.git"
+                  target="_blank"
+                  >GitHub Repository</a
+                >
+              </li>
+              <li>
+                Посилання на сайт:
+                <a
+                  href="https://masyknataliya.github.io/LR6_OCl_ip_zp_51_MasykNataliya/"
+                  target="_blank"
+                  >Live Demo</a
+                >
+              </li>
+            </ul>
+        </section>
+
+        <section class="task-section" id="task4">
+          <h2>ЗАВДАННЯ №4</h2>
+          <p>
+            <strong>Формулювання:</strong> У звітному HTML-документі створити
+            html‑розмітку, яка містить список категорій
+            <code>ul#categories</code>.
+            <br />
+            Напишіть скрипт, який:
+            <br />1. Порахує і виведе в консоль кількість категорій у
+            <code>ul#categories</code>, тобто елементів <code>li.item</code>.
+            <br />2. Для кожного елемента <code>li.item</code> у списку
+            <code>ul#categories</code> знайде і виведе в консоль текст заголовку
+            елемента (тег <code>&lt;h2&gt;</code>) і кількість елементів у
+            категорії (усіх <code>&lt;li&gt;</code>, вкладених у нього).
+            <br /><br />
+            Для виконання цього завдання потрібно використати метод
+            <code>forEach()</code> і властивості навігації по DOM. <br /><br />
+            У звітному HTML-документі відобразити скрін програмного коду.
+          </p>
+
+          <ul id="categories">
+            <li class="item">
+              <h2>Animals</h2>
+              <ul>
+                <li>Cat</li>
+                <li>Hamster</li>
+                <li>Horse</li>
+                <li>Parrot</li>
+              </ul>
+            </li>
+            <li class="item">
+              <h2>Products</h2>
+              <ul>
+                <li>Bread</li>
+                <li>Prasley</li>
+                <li>Cheese</li>
+              </ul>
+            </li>
+            <li class="item">
+              <h2>Technologies</h2>
+              <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Node.js</li>
+              </ul>
+            </li>
+          </ul>
+
+          <pre>
+&lt;script&gt;
+const categoriesList = document.querySelectorAll("#categories .item");
+
+console.log("Number of categories:", categoriesList.length);
+
+categoriesList.forEach((item) => {
+  const title = item.querySelector("h2").textContent;
+  const elementsCount = item.querySelectorAll("ul li").length;
+
+  console.log("Category:", title);
+  console.log("Elements:", elementsCount);
+});
+&lt;/script&gt;
+</pre
+          >
+
+          <p><strong>Результати:</strong></p>
+          <img src="lab6_4.png" alt="Скріншот Console для завдання 4" />
+
+          <ul>
+            <li>
+              Посилання на репозиторій:
+              <ul>
+              <li>
+                Посилання на репозиторій:
+                <a
+                  href="https://github.com/MasykNataliya/LR6_OCl_ip_zp_51_MasykNataliya.git"
+                  target="_blank"
+                  >GitHub Repository</a
+                >
+              </li>
+              <li>
+                Посилання на сайт:
+                <a
+                  href="https://masyknataliya.github.io/LR6_OCl_ip_zp_51_MasykNataliya/"
+                  target="_blank"
+                  >Live Demo</a
+                >
+              </li>
+            </ul>
+        </section>
+
+        <section class="task-section" id="task5">
+          <h2>ЗАВДАННЯ №5</h2>
+          <section class="task-section" id="task5">
+            <h2>ЗАВДАННЯ №5</h2>
+            <p>
+              <strong>Формулювання:</strong> У звітному HTML-документі створити
+              html‑розмітку форми логіна.
+              <br />
+              1. Обробка відправлення форми <code>form.login-form</code> повинна
+              відбуватися за подією <code>submit</code>.
+              <br />
+              2. Під час відправлення форми сторінка не повинна
+              перезавантажуватися.
+              <br />
+              3. Якщо при сабміті у формі є незаповнені поля, виводиться
+              <code>alert</code> з попередженням
+              <code>'All form fields must be filled in'</code>. Не додавайте на
+              інпути атрибут <code>required</code>, валідація має відбуватися
+              саме через JS.
+              <br />
+              4. Якщо користувач заповнив усі поля і відправив форму, збираються
+              значення полів в об’єкт з двома властивостями, де ключ — це ім’я
+              інпутів, а значення — відповідні значення цих інпутів, очищені від
+              пробілів по краях. Для доступу до елементів форми використовується
+              властивість <code>elements</code>.
+              <br />
+              5. При сабміті форми об’єкт із введеними даними виводиться у
+              консоль і значення полів очищаються методом <code>reset()</code>.
+              <br /><br />
+              У звітному HTML-документі відобразити скрін програмного коду.
+            </p>
+
+            <form class="login-form">
+              <label>
+                Email
+                <input type="email" name="email" />
+              </label>
+              <br /><br />
+              <label>
+                Password
+                <input type="password" name="password" />
+              </label>
+              <br /><br />
+              <button type="submit">Log in</button>
+            </form>
+
+            <pre>
+&lt;script&gt;
+const form = document.querySelector(".login-form");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault(); 
+
+  const { email, password } = form.elements;
+
+  const emailValue = email.value.trim();
+  const passwordValue = password.value.trim();
+
+  if (emailValue === "" || passwordValue === "") {
+    alert("All form fields must be filled in");
+    return;
+  }
+
+  const userData = {
+    email: emailValue,
+    password: passwordValue,
+  };
+
+  console.log(userData);
+
+  form.reset(); // очищаємо форму після сабміту
+});
+&lt;/script&gt;
+</pre
+            >
+
+            <img src="lab6_6.png" alt="Скріншот Console для завдання 5" />
+            <ul>
+              <li>
+                Посилання на репозиторій:
+                <a
+                  href="https://github.com/MasykNataliya/LR6_OCl_ip_zp_51_MasykNataliya.git"
+                  target="_blank"
+                  >GitHub Repository</a
+                >
+              </li>
+              <li>
+                Посилання на сайт:
+                <a
+                  href="https://masyknataliya.github.io/LR6_OCl_ip_zp_51_MasykNataliya/"
+                  target="_blank"
+                  >Live Demo</a
+                >
+              </li>
+            </ul>
+          </section>
+
+          <section class="task-section" id="task6">
+            <h2>ЗАВДАННЯ №6</h2>
+            <p>
+              <strong>Формулювання:</strong> Напишіть скрипт, який змінює колір
+              фону елемента <code>&lt;body&gt;</code> через інлайн‑стиль по
+              кліку на кнопку <code>button.change-color</code> і задає це
+              значення кольору текстовим вмістом для <code>span.color</code>.
+              <br /><br />
+              Для генерування випадкового кольору використовуйте функцію
+              <code>getRandomHexColor()</code>. <br /><br />
+              <em>Примітка:</em> Функція
+              <code>getRandomHexColor()</code> повертає колір у hex‑форматі, в
+              той час як колір фону на <code>&lt;body&gt;</code> буде у форматі
+              rgb. Це нормально й не потребує правок. <br /><br />
+              У звітному HTML‑документі відобразити скрін програмного коду.
+            </p>
+
+            <div class="widget">
+              <p>Background color: <span class="color">-</span></p>
+              <button type="button" class="change-color">Change color</button>
+            </div>
+
+            <pre>
+&lt;script&gt;
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, "0")}`;
+}
+
+const body = document.querySelector("body");
+const colorSpan = document.querySelector(".color");
+const changeBtn = document.querySelector(".change-color");
+
+changeBtn.addEventListener("click", () => {
+  const newColor = getRandomHexColor();
+  body.style.backgroundColor = newColor;
+  colorSpan.textContent = newColor;
+});
+&lt;/script&gt;
+</pre
+            >
+
+            <p><strong>Результати:</strong></p>
+            <img src="lab6_7.png" alt="Скріншот Console для завдання 6" />
+
+            <ul>
+              <li>
+                Посилання на репозиторій:
+                <a
+                  href="https://github.com/MasykNataliya/LR6_OCl_ip_zp_51_MasykNataliya.git"
+                  target="_blank"
+                  >GitHub Repository</a
+                >
+              </li>
+              <li>
+                Посилання на сайт:
+                <a
+                  href="https://masyknataliya.github.io/LR6_OCl_ip_zp_51_MasykNataliya/"
+                  target="_blank"
+                  >Live Demo</a
+                >
+              </li>
+            </ul>
+          </section>
+
+          <section class="task-section" id="task7">
+            <h2>ЗАВДАННЯ №7</h2>
+            <p>
+              <strong>Формулювання:</strong> Напишіть скрипт створення й
+              очищення колекції елементів з наступним функціоналом.
+              <br />
+              Є <code>input</code>, у який користувач вводить бажану кількість
+              елементів. Після натискання на кнопку <code>Create</code> має
+              рендеритися (додаватися в DOM) колекція з відповідною кількістю
+              елементів і очищатися значення в інпуті.
+              <br />
+              При повторному натисканні на кнопку <code>Create</code> поверх
+              старої колекції має рендеритись нова.
+              <br />
+              Після натискання на кнопку <code>Destroy</code> колекція елементів
+              має очищатися. <br /><br />
+              Для рендеру елементів на сторінці створіть функцію
+              <code>createBoxes(amount)</code>, яка приймає один параметр —
+              число, що зберігає кількість елементів для рендеру.
+              <br />
+              1. Розміри першого <code>div</code> елемента мають бути 30px на
+              30px.
+              <br />
+              2. Кожен наступний елемент повинен бути ширшим і вищим від
+              попереднього на 10px.
+              <br />
+              3. Усі елементи повинні мати випадковий колір фону. Використовуйте
+              готову функцію <code>getRandomHexColor()</code>. <br /><br />
+              Для очищення колекції після натискання на кнопку
+              <code>Destroy</code> створіть функцію <code>destroyBoxes()</code>,
+              яка очищає вміст <code>div#boxes</code>. <br /><br />
+              У звітному HTML‑документі відобразити скрін програмного коду.
+            </p>
+
+            <div id="controls">
+              <input id="boxesInput" type="number" min="1" max="100" step="1" />
+              <button type="button" data-create>Create</button>
+              <button type="button" data-destroy>Destroy</button>
+            </div>
+            <div id="boxes"></div>
+
+            <pre>
+&lt;script&gt;
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, "0")}`;
+}
+
+const boxesInput = document.getElementById("boxesInput");
+const createBtn = document.querySelector("[data-create]");
+const destroyBtn = document.querySelector("[data-destroy]");
+const boxesContainer = document.getElementById("boxes");
+
+function createBoxes(amount) {
+  destroyBoxes(); 
+  const boxes = [];
+
+  let size = 30; 
+
+  for (let i = 0; i < amount; i++) {
+    const box = document.createElement("div");
+    box.style.width = `${size}px`;
+    box.style.height = `${size}px`;
+    box.style.backgroundColor = getRandomHexColor();
+    box.style.margin = "5px";
+    boxes.push(box);
+    size += 10; 
+  }
+
+  boxesContainer.append(...boxes);
+}
+
+function destroyBoxes() {
+  boxesContainer.innerHTML = "";
+}
+
+createBtn.addEventListener("click", () => {
+  const amount = Number(boxesInput.value);
+
+  if (amount >= 1 && amount <= 100) {
+    createBoxes(amount);
+    boxesInput.value = ""; 
+  } else {
+    alert("Введіть число від 1 до 100");
+  }
+});
+
+destroyBtn.addEventListener("click", destroyBoxes);
+&lt;/script&gt;
+</pre
+            >
+
+            <img src="lab6_8.png" alt="Скріншот Console для завдання 7" />
+            <img src="lab6_82.png" alt="Скріншот Console для завдання 7" />
+
+            <ul>
+              <li>
+                Посилання на репозиторій:
+                <a
+                  href="https://github.com/MasykNataliya/LR6_OCl_ip_zp_51_MasykNataliya.git"
+                  target="_blank"
+                  >GitHub Repository</a
+                >
+              </li>
+              <li>
+                Посилання на сайт:
+                <a
+                  href="https://masyknataliya.github.io/LR6_OCl_ip_zp_51_MasykNataliya/"
+                  target="_blank"
+                  >Live Demo</a
+                >
+              </li>
+            </ul>
+          </section>
+          <!-- Висновки -->
+          <section class="task-section" id="conclusion">
+            <h2>ВИСНОВКИ</h2>
+            <p>
+              У ході виконання лабораторної роботи №4 було розглянуто та
+              реалізовано низку практичних завдань з використанням мови
+              програмування JavaScript. Кожне завдання мало на меті закріплення
+              навичок роботи з базовими конструкціями та функціями:
+            </p>
+            <ul>
+              <li>
+                Використання <code>prompt()</code>, <code>alert()</code> та
+                <code>console.log()</code> для взаємодії з користувачем.
+              </li>
+              <li>
+                Застосування умовних операторів <code>if...else</code> та
+                <code>switch-case</code> для перевірки введених даних.
+              </li>
+              <li>
+                Робота з функціями: створення та виклик, передача параметрів,
+                повернення результатів.
+              </li>
+              <li>
+                Обробка рядків та перевірка їх вмісту за допомогою методів
+                <code>toLowerCase()</code> та <code>includes()</code>.
+              </li>
+              <li>
+                Робота з масивами: створення, фільтрація, сортування, побудова
+                нових масивів на основі умов.
+              </li>
+              <li>
+                Реалізація алгоритму швидкого сортування для впорядкування
+                даних.
+              </li>
+              <li>
+                Створення двовимірних масивів та їх обробка, розділення на
+                додатні та від’ємні числа.
+              </li>
+              <li>
+                Розробка інтерактивного елемента «Підказка при введенні» для
+                текстового поля.
+              </li>
+            </ul>
+            <p>
+              Виконання завдань дозволило закріпити знання з основ програмування
+              на JavaScript, навчитися застосовувати умовні оператори, цикли,
+              функції та методи роботи з масивами. Окремо було розглянуто
+              створення простих алгоритмів сортування та інтерактивних елементів
+              інтерфейсу. Таким чином, лабораторна робота сприяла формуванню
+              практичних навичок програмування та підготовці до більш складних
+              завдань.
+            </p>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2025 Масик Н.В. | ІП-зп51</p>
+      <p>тел. 067 921 86 26</p>
+    </footer>
+  </body>
+</html>
