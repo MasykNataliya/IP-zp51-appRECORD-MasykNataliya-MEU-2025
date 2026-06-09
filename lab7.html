@@ -1,0 +1,1010 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Звіт по Лабораторній роботі №7</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <!-- Бокове меню -->
+      <aside class="sidenav">
+        <a href="#task1">ЗАВДАННЯ №1</a>
+        <a href="#task2">ЗАВДАННЯ №2</a>
+        <a href="#task3">ЗАВДАННЯ №3</a>
+        <a href="#task4">ЗАВДАННЯ №4</a>
+        <a href="#task5">ЗАВДАННЯ №5</a>
+        <a href="#conclusion">Висновки</a>
+      </aside>
+
+      <!-- Основний контент -->
+      <main class="content">
+        <header class="events">
+          <div class="events__title">
+            <p>ЗВІТИ З ЛАБОРАТОРНИХ РОБІТ З</p>
+            <p>ДИСЦИПЛІНИ “Проєктування WEB-застосувань”</p>
+          </div>
+        </header>
+
+        <div class="events__author">
+          <p>Виконавець: Студентка групи ІП-зп51 Масик Н.В.</p>
+          <img src="2.jpg" alt="Фото" class="events__photo" />
+        </div>
+
+        <!-- Верхнє меню вибору лабораторних -->
+        <nav class="onview">
+          <a href="lab1.html">Лабораторна 1</a>
+          <a href="lab2.html">Лабораторна 2</a>
+          <a href="lab3.html">Лабораторна 3</a>
+          <a href="lab4.html">Лабораторна 4</a>
+          <a href="lab5.html">Лабораторна 5</a>
+          <a href="lab6.html">Лабораторна 6</a>
+          <a href="lab7.html">Лабораторна 7</a>
+        </nav>
+
+        <section class="title">
+          <h2>Лабораторна робота №7</h2>
+        </section>
+
+        <!-- Завдання 1–5 -->
+        <section class="task-section" id="task1">
+          <h2>ЗАВДАННЯ №1</h2>
+<p>
+  <strong>Формулювання:</strong> Створити окремий репозиторій у GitHub.
+  <br />
+  Створити посилання на живу сторінку.
+  <br />
+  Склонувати репозиторій на свій комп’ютер.
+  <br />
+  Створити файл <code>index.html</code> і дві папки: <code>CSS</code> та <code>JS</code>.
+  У папці <code>CSS</code> створити файл <code>style.css</code>.
+  У папці <code>JS</code> створити файл <code>gallery.js</code>.
+  <br />
+  У програмі Figma створити макет галереї довільних зображень.
+  <br />
+  Виконати верстку власного макету. В HTML коді (index.html) додати тег
+  контейнера галереї — невпорядкований список із класом <code>gallery</code>, згідно макету.
+</p>
+
+<ul class="gallery"></ul>
+
+<p>
+  У свій JavaScript файл додати масив зображень. Кожний об’єкт являє собою один елемент галереї:
+</p>
+
+<pre><code>
+const images = [
+  {
+    preview: 'https://…..',
+    original: 'https://….',
+    description: 'текстовий опис зображення',
+  },
+  {
+    preview: 'https://…..',
+    original: 'https://….',
+    description: 'текстовий опис зображення',
+  },
+  // додаєте потрібну кількість зображень
+];
+</code></pre>
+
+<p>
+  Виконати в JavaScript коді розмітку елементів, після чого додати усю розмітку всередину <code>ul.gallery</code>.
+  <br />
+  Додати стилізацію галереї згідно макету.
+  <br />
+  Виконати делегування: додати функціонал прослуховування кліка по елементах галереї та отримання посилання на велике зображення при кліку.
+  <br />
+  Підключити бібліотеку <strong>basicLightbox</strong> через CDN сервіс jsdelivr та додати у HTML файл посилання на мініфіковані JS та CSS файли.
+  <br />
+  Доповнити код так, щоб при кліку по елементу галереї відкривалось модальне вікно підключеної бібліотеки.
+</p>
+
+<p>
+  Документація: <a href="https://github.com/electerious/basicLightbox#readme">basicLightbox Readme</a><br />
+  Приклади: <a href="https://basiclightbox.electerious.com/">basicLightbox Demo</a>
+</p>
+
+<pre>
+&lt;script type="module"&gt;
+import { images } from "./images.js";
+
+// Імпортуємо бібліотеку та її стилі для Vite
+import * as basicLightbox from "basiclightbox";
+import "basiclightbox/dist/basicLightbox.min.css";
+
+const gallery = document.getElementById("gallery");
+
+// 1. Генерація розмітки галереї
+gallery.innerHTML = images
+  .map(
+    (img) => `
+    &lt;li class="gallery-item" data-source="${img.original}"&gt;
+      &lt;img class="gallery-image" src="${img.preview}" alt="${img.description}" /&gt;
+    &lt;/li&gt;
+  `,
+  )
+  .join("");
+
+// 2. Делегування подій на батьківський елемент 'ul#gallery'
+gallery.addEventListener("click", onGalleryItemClick);
+
+function onGalleryItemClick(event) {
+  event.preventDefault();
+
+  const isImageTarget = event.target.classList.contains("gallery-image");
+  if (!isImageTarget) return;
+
+  const parentListItem = event.target.closest(".gallery-item");
+  const largeImageUrl = parentListItem.dataset.source;
+  const imageAlt = event.target.alt;
+
+  // 3. Ініціалізація та відкриття модального вікна
+  const instance = basicLightbox.create(`
+    &lt;div class="modal"&gt;
+      &lt;img src="${largeImageUrl}" alt="${imageAlt}" width="800" height="600" /&gt;
+    &lt;/div&gt;
+  `);
+
+  instance.show();
+
+  // Закриття модального вікна по Escape
+  const handleEscape = (e) =&gt; {
+    if (e.code === "Escape") {
+      instance.close();
+      document.removeEventListener("keydown", handleEscape);
+    }
+  };
+  document.addEventListener("keydown", handleEscape);
+}
+&lt;/script&gt;
+</pre>
+
+      <pre>
+&lt;script type="module"&gt;
+export const images = [
+  {
+    preview: "https://picsum.photos/id/1015/250/150",
+    original: "https://picsum.photos/id/1015/800/600",
+    description: "Гірський пейзаж",
+  },
+  {
+    preview: "https://picsum.photos/id/1024/250/150",
+    original: "https://picsum.photos/id/1024/800/600",
+    description: "Собака на природі",
+  },
+  {
+    preview: "https://picsum.photos/id/1036/250/150",
+    original: "https://picsum.photos/id/1036/800/600",
+    description: "Лісова дорога",
+  },
+  {
+    preview: "https://picsum.photos/id/1042/250/150",
+    original: "https://picsum.photos/id/1042/800/600",
+    description: "Морський берег",
+  },
+];
+&lt;/script&gt;
+</pre>
+
+
+          <p><strong>Результати:</strong></p>
+          <img src="lab7_1.png" alt="Скріншот Console для завдання 1" />
+            <img src="lab7_12.png" alt="Скріншот Console для завдання 1" />
+
+         <ul>
+              <li>
+                Посилання на репозиторій:
+                <a
+                  href="https://github.com/MasykNataliya/LR7_Ocl_ip_zp_51_MasykNataliya.git"
+                  target="_blank"
+                  >GitHub Repository</a
+                >
+              </li>
+              <li>
+                Посилання на сайт:
+                <a
+                  href="https://masyknataliya.github.io/LR7_Ocl_ip_zp_51_MasykNataliya/"
+                  target="_blank"
+                  >Live Demo</a
+                >
+              </li>
+            </ul>
+        </section>
+
+        <section class="task-section" id="task2">
+         <h2>ЗАВДАННЯ №2</h2>
+<p>
+  <strong>Формулювання:</strong> Реалізувати форму зворотного зв’язку, яка
+  зберігає дані користувача у локальному сховищі та відновлює їх після
+  перезавантаження сторінки.
+  <br />
+  Виконати завдання у файлах <code>2-form.html</code> та <code>2-form.js</code>.
+  <br />
+  У HTML додати розмітку форми, а у JS написати скрипт, який буде зберігати
+  значення полів у локальне сховище при введенні даних.
+</p>
+
+<form class="feedback-form" autocomplete="off">
+  <label>
+    Email
+    <input type="email" name="email" autofocus />
+  </label>
+  <label>
+    Message
+    <textarea name="message" rows="8"></textarea>
+  </label>
+  <button type="submit">Submit</button>
+</form>
+
+<p>
+  <strong>Підзавдання:</strong>
+  <br />
+   Оголосити глобальний об’єкт <code>formData</code> з полями
+  <code>email</code> та <code>message</code>, які спочатку мають порожні рядки.
+  <br />
+   Використати делегування події <code>input</code> для відстеження змін у
+  формі. Зберігати актуальні дані у <code>formData</code> та записувати їх у
+  <code>localStorage</code> під ключем <code>"feedback-form-state"</code>.
+  <br />
+   При завантаженні сторінки перевіряти, чи є дані у сховищі. Якщо так —
+  заповнити ними форму та об’єкт <code>formData</code>. Якщо ні — залишити поля
+  порожніми.
+  <br />
+   При сабміті перевіряти, чи заповнені обидва поля. Якщо ні — показати
+  повідомлення «Fill please all fields». Якщо так — вивести у консоль об’єкт
+  <code>formData</code>, очистити сховище, об’єкт і поля форми.
+</p>
+
+<p>
+  <strong>Варто звернути увагу:</strong>
+  <br />
+  • На живій сторінці відображається форма з двома елементами та кнопкою
+  <code>submit</code>.
+  <br />
+  • Форма стилізована згідно макету.
+  <br />
+  • Події <code>input</code> і <code>submit</code> обробляються через JS.
+  <br />
+  • Дані зберігаються у <code>localStorage</code> без пробілів по краях.
+  <br />
+  • При оновленні сторінки дані відновлюються у форму без значень
+  <code>undefined</code>.
+  <br />
+  • При сабміті виконується перевірка заповненості полів, вивід у консоль та
+  очищення сховища.
+</p>
+
+
+<pre>
+&lt;script&gt;
+// Ключ для локального сховища
+const STORAGE_KEY = "feedback-form-state";
+
+// Оголошення глобального об'єкта стану форми
+const formData = {
+  email: "",
+  message: "",
+};
+
+const form = document.querySelector(".feedback-form");
+const emailInput = form.elements.email;
+const messageInput = form.elements.message;
+
+// 1. ПЕРЕВІРКА СХОВИЩА ПРИ ЗАВАНТАЖЕННІ СТОРІНКИ
+populateForm();
+
+function populateForm() {
+  const savedState = localStorage.getItem(STORAGE_KEY);
+
+  if (savedState) {
+    try {
+      const parsedData = JSON.parse(savedState);
+
+      // Заповнюємо об'єкт formData і поля форми, уникаючи undefined
+      formData.email = parsedData.email?.trim() || "";
+      formData.message = parsedData.message?.trim() || "";
+
+      emailInput.value = formData.email;
+      messageInput.value = formData.message;
+    } catch (error) {
+      console.error("Помилка парсингу даних з localStorage:", error);
+    }
+  }
+}
+
+// 2. ДЕЛЕГУВАННЯ ПОДІЇ INPUT (Відстеження змін)
+form.addEventListener("input", onFormInput);
+
+function onFormInput(event) {
+  // Записуємо значення, очищаючи від пробілів по краях за допомогою trim()
+  formData[event.target.name] = event.target.value.trim();
+
+  // Зберігаємо актуальний об'єкт у локальне сховище
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+}
+
+// 3. ОБРОБКА САБМІТУ ФОРМИ
+form.addEventListener("submit", onFormSubmit);
+
+function onFormSubmit(event) {
+  event.preventDefault();
+
+  // Перевірка актуальних значень в об'єкті (чи заповнені обидва поля)
+  if (!formData.email || !formData.message) {
+    alert("Fill please all fields");
+    return;
+  }
+
+  // Якщо все заповнено — виводимо об'єкт у консоль
+  console.log("Submitted Form Data:", formData);
+
+  // Очищаємо локальне сховище
+  localStorage.removeItem(STORAGE_KEY);
+
+  // Очищаємо об'єкт formData
+  formData.email = "";
+  formData.message = "";
+
+  // Очищаємо поля форми
+  form.reset();
+}
+&lt;/script&gt;
+</pre>
+
+          
+
+          <p><strong>Результати:</strong></p>
+          <img src="lab7_21.png" alt="Скріншот Console для завдання 2" />
+          <img src="lab7_22.png" alt="Скріншот Console для завдання 2" />
+
+         <ul>
+              <li>
+                Посилання на репозиторій:
+                <a
+                  href="https://github.com/MasykNataliya/LR7_Ocl_ip_zp_51_MasykNataliya.git"
+                  target="_blank"
+                  >GitHub Repository</a
+                >
+              </li>
+              <li>
+                Посилання на сайт:
+                <a
+                  href="https://masyknataliya.github.io/LR7_Ocl_ip_zp_51_MasykNataliya/"
+                  target="_blank"
+                  >Live Demo</a
+                >
+              </li>
+            </ul>
+        </section>
+
+        <section class="task-section" id="task3">
+          <h2>ЗАВДАННЯ №3</h2>
+<p>
+  <strong>Формулювання:</strong> Реалізувати таймер зворотного відліку до певної дати.
+  Виконати завдання у файлах <code>1-timer.html</code> та <code>1-timer.js</code>.
+  <br />
+  Такий таймер може використовуватися у блогах, інтернет-магазинах, сторінках
+  реєстрації подій, під час технічного обслуговування тощо.
+</p>
+
+<p><strong>Елементи інтерфейсу:</strong></p>
+<input type="text" id="datetime-picker" />
+<button type="button" data-start>Start</button>
+<div class="timer">
+  <div class="field">
+    <span class="value" data-days>00</span>
+    <span class="label">Days</span>
+  </div>
+  <div class="field">
+    <span class="value" data-hours>00</span>
+    <span class="label">Hours</span>
+  </div>
+  <div class="field">
+    <span class="value" data-minutes>00</span>
+    <span class="label">Minutes</span>
+  </div>
+  <div class="field">
+    <span class="value" data-seconds>00</span>
+    <span class="label">Seconds</span>
+  </div>
+</div>
+
+<p>
+  <strong>Бібліотека flatpickr:</strong> використовується для вибору кінцевої дати й часу.
+  Підключається через імпорт:
+</p>
+
+<pre><code>
+import flatpickr from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css";
+</code></pre>
+
+<p>
+  <strong>Бібліотека iziToast:</strong> використовується для повідомлень користувачеві
+  замість <code>alert()</code>.
+</p>
+
+<pre><code>
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
+</code></pre>
+
+<p>
+  <strong>Логіка роботи:</strong>
+  <br />
+  • При першому завантаженні сторінки кнопка Start неактивна.
+  <br />
+  • При виборі дати в минулому з’являється повідомлення «Please choose a date in the future» і кнопка лишається неактивною.
+  <br />
+  • При виборі майбутньої дати кнопка стає активною.
+  <br />
+  • Натисканням на кнопку Start запускається таймер, який щосекунди обчислює різницю між поточним часом і обраною датою.
+  <br />
+  • Для підрахунку використовується функція <code>convertMs()</code>, яка повертає об’єкт {days, hours, minutes, seconds}.
+  <br />
+  • Для форматування чисел застосовується функція <code>addLeadingZero()</code> з методом <code>padStart()</code>.
+  <br />
+  • Коли час доходить до нуля, таймер зупиняється, інпут знову стає активним, а кнопка лишається неактивною.
+</p>
+
+<p>
+  <strong>На що звертає увагу ментор:</strong>
+  <br />
+  • Підключені бібліотеки flatpickr та iziToast.
+  <br />
+  • Коректна робота кнопки Start (активна лише при виборі майбутньої дати).
+  <br />
+  • Таймер відображає час у форматі xx:xx:xx:xx та оновлюється щосекунди.
+  <br />
+  • При досягненні кінцевої дати інтерфейс показує 00:00:00:00.
+</p>
+
+ <pre>
+&lt;script type="module"&gt;
+import flatpickr from "flatpickr";
+import "flatpickr/dist/flatpickr.min.css";
+
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
+
+const startBtn = document.querySelector("[data-start]");
+const daysEl = document.querySelector("[data-days]");
+const hoursEl = document.querySelector("[data-hours]");
+const minutesEl = document.querySelector("[data-minutes]");
+const secondsEl = document.querySelector("[data-seconds]");
+const inputEl = document.querySelector("#datetime-picker");
+
+let userSelectedDate = null;
+let timerId = null;
+
+startBtn.disabled = true;
+
+const options = {
+  enableTime: true,
+  time_24hr: true,
+  defaultDate: new Date(),
+  minuteIncrement: 1,
+  onClose(selectedDates) {
+    const selectedDate = selectedDates[0];
+    if (selectedDate &lt;= new Date()) {
+      iziToast.error({
+        title: "Error",
+        message: "Please choose a date in the future",
+      });
+      startBtn.disabled = true;
+    } else {
+      userSelectedDate = selectedDate;
+      startBtn.disabled = false;
+    }
+  },
+};
+
+flatpickr(inputEl, options);
+
+startBtn.addEventListener("click", () =&gt; {
+  startBtn.disabled = true;
+  inputEl.disabled = true;
+
+  timerId = setInterval(() =&gt; {
+    const diff = userSelectedDate - new Date();
+    if (diff &lt;= 0) {
+      clearInterval(timerId);
+      updateTimerUI({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      inputEl.disabled = false;
+      return;
+    }
+    updateTimerUI(convertMs(diff));
+  }, 1000);
+});
+
+function convertMs(ms) {
+  const second = 1000;
+  const minute = second * 60;
+  const hour = minute * 60;
+  const day = hour * 24;
+
+  const days = Math.floor(ms / day);
+  const hours = Math.floor((ms % day) / hour);
+  const minutes = Math.floor(((ms % day) % hour) / minute);
+  const seconds = Math.floor((((ms % day) % hour) % minute) / second);
+
+  return { days, hours, minutes, seconds };
+}
+
+function addLeadingZero(value) {
+  return String(value).padStart(2, "0");
+}
+
+function updateTimerUI({ days, hours, minutes, seconds }) {
+  daysEl.textContent = days;
+  hoursEl.textContent = addLeadingZero(hours);
+  minutesEl.textContent = addLeadingZero(minutes);
+  secondsEl.textContent = addLeadingZero(seconds);
+}
+&lt;/script&gt;
+</pre>
+
+          >
+
+          <p><strong>Результати:</strong></p>
+          <img src="lab7_3.png" alt="Скріншот Console для завдання 3" />
+              <img src="lab7_32.png" alt="Скріншот Console для завдання 3" />
+
+          <ul>
+              <li>
+                Посилання на репозиторій:
+                <a
+                  href="https://github.com/MasykNataliya/LR7_Ocl_ip_zp_51_MasykNataliya.git"
+                  target="_blank"
+                  >GitHub Repository</a
+                >
+              </li>
+              <li>
+                Посилання на сайт:
+                <a
+                  href="https://masyknataliya.github.io/LR7_Ocl_ip_zp_51_MasykNataliya/"
+                  target="_blank"
+                  >Live Demo</a
+                >
+              </li>
+            </ul>
+        </section>
+
+        <section class="task-section" id="task4">
+       
+          <h2>ЗАВДАННЯ №4</h2>
+<p>
+  <strong>Формулювання:</strong> Реалізувати генератор промісів, який створює
+  повідомлення про виконання або відхилення промісу із заданою затримкою.
+  Виконати завдання у файлах <code>2-snackbar.html</code> та
+  <code>2-snackbar.js</code>. Подивитися демовідео роботи генератора промісів.
+</p>
+
+<p><strong>HTML-розмітка форми:</strong></p>
+<form class="form">
+  <label>
+    Delay (ms)
+    <input type="number" name="delay" required />
+  </label>
+  <fieldset>
+    <legend>State</legend>
+    <label>
+      <input type="radio" name="state" value="fulfilled" required />
+      Fulfilled
+    </label>
+    <label>
+      <input type="radio" name="state" value="rejected" required />
+      Rejected
+    </label>
+  </fieldset>
+  <button type="submit">Create notification</button>
+</form>
+
+<p>
+  <strong>Логіка роботи:</strong>
+  <br />
+  • При сабміті форми створюється проміс із затримкою, яку користувач задає у полі <code>delay</code>.
+  <br />
+  • Якщо обрано стан <code>fulfilled</code>, проміс виконується через метод <code>resolve()</code>.
+  <br />
+  • Якщо обрано стан <code>rejected</code>, проміс відхиляється через метод <code>reject()</code>.
+  <br />
+  • Значенням промісу є кількість мілісекунд затримки.
+  <br />
+  • Результат обробляється через <code>.then()</code> та <code>.catch()</code>.
+  <br />
+  • Для повідомлень використовується бібліотека <strong>iziToast</strong>, яка показує
+  повідомлення про успіх або помилку замість <code>console.log()</code>.
+</p>
+
+<p>
+  <strong>Приклад повідомлень:</strong>
+  <br />
+  • Успішне виконання: <code>✅ Fulfilled promise in ${delay}ms</code>
+  <br />
+  • Відхилення: <code>❌ Rejected promise in ${delay}ms</code>
+</p>
+
+<p>
+  <strong>На що звертає увагу ментор:</strong>
+  <br />
+  • Підключена бібліотека <code>iziToast</code>.
+  <br />
+  • При виборі стану в радіокнопках і натисканні на кнопку <code>Create notification</code>
+  з’являється повідомлення відповідного стилю із затримкою у мілісекундах.
+  <br />
+  • Повідомлення містить тип обраного стану та кількість мілісекунд згідно з шаблоном.
+</p>
+
+
+          <ul id="categories">
+            <li class="item">
+              <h2>Animals</h2>
+              <ul>
+                <li>Cat</li>
+                <li>Hamster</li>
+                <li>Horse</li>
+                <li>Parrot</li>
+              </ul>
+            </li>
+            <li class="item">
+              <h2>Products</h2>
+              <ul>
+                <li>Bread</li>
+                <li>Prasley</li>
+                <li>Cheese</li>
+              </ul>
+            </li>
+            <li class="item">
+              <h2>Technologies</h2>
+              <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Node.js</li>
+              </ul>
+            </li>
+          </ul>
+
+         <pre>
+&lt;script type="module"&gt;
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
+
+const form = document.querySelector(".form");
+
+form.addEventListener("submit", (event) =&gt; {
+  event.preventDefault();
+
+  const delay = Number(form.elements.delay.value);
+  const state = form.elements.state.value;
+
+  // Створюємо проміс
+  const promise = new Promise((resolve, reject) =&gt; {
+    setTimeout(() =&gt; {
+      if (state === "fulfilled") {
+        resolve(delay);
+      } else {
+        reject(delay);
+      }
+    }, delay);
+  });
+
+  // Обробка результату
+  promise
+    .then((delay) =&gt; {
+      iziToast.success({
+        title: "✅ Success",
+        message: `Fulfilled promise in ${delay}ms`,
+      });
+    })
+    .catch((delay) =&gt; {
+      iziToast.error({
+        title: "❌ Error",
+        message: `Rejected promise in ${delay}ms`,
+      });
+    });
+});
+&lt;/script&gt;
+</pre>
+
+          >
+
+          <p><strong>Результати:</strong></p>
+          <img src="lab7_4.png" alt="Скріншот Console для завдання 4" />
+
+          <ul>
+            <li>
+              Посилання на репозиторій:
+              <ul>
+              <li>
+                Посилання на репозиторій:
+                <a
+                  href="https://github.com/MasykNataliya/LR7_Ocl_ip_zp_51_MasykNataliya.git"
+                  target="_blank"
+                  >GitHub Repository</a
+                >
+              </li>
+              <li>
+                Посилання на сайт:
+                <a
+                  href="https://masyknataliya.github.io/LR7_Ocl_ip_zp_51_MasykNataliya/"
+                  target="_blank"
+                  >Live Demo</a
+                >
+              </li>
+            </ul>
+        </section>
+
+        <section class="task-section" id="task5">
+         
+            <h2>ЗАВДАННЯ №5</h2>
+<p>
+  <strong>Формулювання:</strong> Створити застосунок пошуку зображень за ключовим словом
+  і їх перегляду в галереї. Виконати завдання у файлах <code>3-search.html</code> та
+  <code>3-search.js</code>. Додати оформлення елементів інтерфейсу згідно з макетом.
+</p>
+
+<p><strong>Форма пошуку:</strong></p>
+<form id="search-form">
+  <input type="text" id="search-input" placeholder="Введіть ключове слово..." />
+  <button type="submit">Search</button>
+</form>
+
+<p>
+  • При сабміті форми виконується HTTP-запит до API сервісу <strong>Pixabay</strong>.  
+  • Перед відправкою запиту перевіряється, чи поле пошуку не порожнє.  
+  • Якщо поле порожнє — показується повідомлення через <code>iziToast.warning()</code>.  
+</p>
+
+<p><strong>HTTP-запити:</strong></p>
+<pre><code>
+https://pixabay.com/api/?key=YOUR_API_KEY&q=SEARCH_QUERY
+&image_type=photo&orientation=horizontal&safesearch=true
+</code></pre>
+
+<p>
+  • Використовуються параметри: <code>key</code>, <code>q</code>, <code>image_type</code>,
+  <code>orientation</code>, <code>safesearch</code>.  
+  • Якщо масив <code>hits</code> порожній — показується повідомлення
+  «Sorry, there are no images matching your search query. Please try again!» через
+  <code>iziToast.error()</code>.
+</p>
+
+<p><strong>Галерея і картки зображень:</strong></p>
+<ul id="gallery"></ul>
+
+<p>
+  • Кожна картка містить маленьке фото (<code>webformatURL</code>), посилання на велике фото
+  (<code>largeImageURL</code>), опис (<code>tags</code>) та статистику: лайки, перегляди, коментарі,
+  завантаження.  
+  • Перед новим пошуком галерея очищається.  
+  • Нові елементи додаються в DOM за одну операцію.  
+</p>
+
+<p><strong>Бібліотека SimpleLightbox:</strong></p>
+<pre><code>
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+</code></pre>
+
+<p>
+  • Картки обгорнуті у посилання для відкриття великої версії зображення.  
+  • Після додавання нових елементів викликається метод <code>lightbox.refresh()</code>.  
+</p>
+
+<p><strong>Індикатор завантаження:</strong></p>
+<div id="loader" class="hidden">Loading...</div>
+
+<p>
+  • Перед початком запиту індикатор показується.  
+  • Після завершення запиту індикатор зникає.  
+  • Для стилізації можна використати бібліотеку <strong>css-loader</strong>.  
+</p>
+
+<p><strong>На що звертає увагу ментор:</strong></p>
+<ul>
+  <li>Домашня робота містить два посилання: на вихідні файли і живу сторінку на GitHub Pages.</li>
+  <li>Проєкт зібраний за допомогою Vite.</li>
+  <li>Консоль не містить помилок і попереджень.</li>
+  <li>Підключені бібліотеки iziToast, SimpleLightbox та css-loader.</li>
+  <li>Елементи стилізовані згідно макету.</li>
+  <li>Форма пошуку працює коректно, індикатор завантаження з’являється і зникає.</li>
+  <li>При відсутності результатів показується повідомлення про помилку.</li>
+  <li>При кліку на картку відкривається велике фото у модальному вікні.</li>
+</ul>
+
+
+            <form class="login-form">
+              <label>
+                Email
+                <input type="email" name="email" />
+              </label>
+              <br /><br />
+              <label>
+                Password
+                <input type="password" name="password" />
+              </label>
+              <br /><br />
+              <button type="submit">Log in</button>
+            </form>
+
+            <pre>
+&lt;script type="module"&gt;
+window.global = window;
+
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
+
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
+const form = document.getElementById("search-form");
+const input = document.getElementById("search-input");
+const gallery = document.getElementById("gallery");
+const loader = document.getElementById("loader");
+
+const LightboxConstructor = SimpleLightbox.default || SimpleLightbox;
+
+const lightbox = new LightboxConstructor("#gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
+});
+
+form.addEventListener("submit", async (event) =&gt; {
+  event.preventDefault();
+  const query = input.value.trim();
+
+  if (!query) {
+    iziToast.warning({
+      title: "Warning",
+      position: "topRight",
+      message: "Введіть ключове слово для пошуку!",
+    });
+    return;
+  }
+
+  gallery.innerHTML = "";
+  loader.classList.remove("hidden");
+
+  try {
+    const response = await fetch(
+      "https://pixabay.com/api/?key=56210473-e210368ea5e764e12547e4976&q=" +
+        encodeURIComponent(query) +
+        "&image_type=photo&orientation=horizontal&safesearch=true",
+    );
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const data = await response.json();
+
+    loader.classList.add("hidden");
+
+    if (data.hits.length === 0) {
+      iziToast.error({
+        title: "Error",
+        position: "topRight",
+        message:
+          "Sorry, there are no images matching your search query. Please try again!",
+      });
+      return;
+    }
+
+    const markup = data.hits
+      .map(
+        (img) =&gt; `
+        &lt;li class="gallery-item"&gt;
+          &lt;a class="gallery-link" href="${img.largeImageURL}"&gt;
+            &lt;img src="${img.webformatURL}" alt="${img.tags}" class="gallery-image" /&gt;
+          &lt;/a&gt;
+          &lt;div class="info"&gt;
+            &lt;p class="info-item"&gt;&lt;b&gt;Likes&lt;/b&gt; &lt;span class="info-value"&gt;${img.likes}&lt;/span&gt;&lt;/p&gt;
+            &lt;p class="info-item"&gt;&lt;b&gt;Views&lt;/b&gt; &lt;span class="info-value"&gt;${img.views}&lt;/span&gt;&lt;/p&gt;
+            &lt;p class="info-item"&gt;&lt;b&gt;Comments&lt;/b&gt; &lt;span class="info-value"&gt;${img.comments}&lt;/span&gt;&lt;/p&gt;
+            &lt;p class="info-item"&gt;&lt;b&gt;Downloads&lt;/b&gt; &lt;span class="info-value"&gt;${img.downloads}&lt;/span&gt;&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/li&gt;
+      `,
+      )
+      .join("");
+
+    gallery.innerHTML = markup;
+
+    lightbox.refresh();
+    form.reset();
+  } catch (error) {
+    loader.classList.add("hidden");
+    iziToast.error({
+      title: "Error",
+      position: "topRight",
+      message: "Сталася помилка при завантаженні зображень!",
+    });
+    console.error("Помилка під час виконання запиту:", error);
+  }
+});
+&lt;/script&gt;
+</pre>
+
+
+            <img src="lab7_5.png" alt="Скріншот Console для завдання 5" />
+            <ul>
+              <li>
+                Посилання на репозиторій:
+                <a
+                  href="https://github.com/MasykNataliya/LR7_Ocl_ip_zp_51_MasykNataliya.git"
+                  target="_blank"
+                  >GitHub Repository</a
+                >
+              </li>
+              <li>
+                Посилання на сайт:
+                <a
+                  href="https://masyknataliya.github.io/LR7_Ocl_ip_zp_51_MasykNataliya/"
+                  target="_blank"
+                  >Live Demo</a
+                >
+              </li>
+            </ul>
+          </section>
+
+          <section class="task-section" id="task6">
+           
+           <h2>ВИСНОВКИ</h2>
+<p>
+  У ході виконання лабораторної роботи №6 було розглянуто та реалізовано низку
+  практичних завдань з використанням мови програмування JavaScript та роботи з
+  DOM. Кожне завдання мало на меті закріплення навичок створення інтерактивних
+  елементів веб‑сторінки:
+</p>
+<ul>
+  <li>
+    Використання <code>console.log()</code>, <code>alert()</code> та взаємодії з
+    інпутами й кнопками для роботи з даними користувача.
+  </li>
+  <li>
+    Реалізація приховування та розкриття введеної інформації за допомогою
+    зміни атрибутів <code>type</code> та тексту кнопки.
+  </li>
+  <li>
+    Додавання слухачів подій на <code>window</code> для визначення кліку у
+    конкретний елемент сторінки.
+  </li>
+  <li>
+    Використання навігації по DOM для підрахунку категорій та елементів у
+    списках.
+  </li>
+  <li>
+    Управління формою логіна з валідацією даних через JavaScript без
+    використання атрибутів <code>required</code>.
+  </li>
+  <li>
+    Зміна кольору фону сторінки та відображення значення кольору у текстовому
+    елементі.
+  </li>
+  <li>
+    Створення та очищення колекції блоків із випадковими кольорами та
+    поступовим збільшенням розміру.
+  </li>
+</ul>
+<p>
+  Виконання завдань дозволило закріпити знання з роботи з подіями, DOM‑елементами,
+  циклами та функціями. Лабораторна робота сприяла формуванню практичних навичок
+  створення інтерактивних інтерфейсів та підготовці до більш складних завдань у
+  веб‑розробці.
+</p>
+
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2025 Масик Н.В. | ІП-зп51</p>
+      <p>тел. 067 921 86 26</p>
+    </footer>
+  </body>
+</html>
